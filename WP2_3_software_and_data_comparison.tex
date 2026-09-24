@@ -1,0 +1,329 @@
+\documentclass[a4paper,landscape,10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1.05cm]{geometry}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\usepackage{pdflscape}
+\usepackage{enumitem}
+
+% ------------------------------------------------------------
+% Colours
+% ------------------------------------------------------------
+\definecolor{header}{HTML}{17365D}
+\definecolor{header2}{HTML}{D9EAF7}
+\definecolor{good}{HTML}{C6EFCE}
+\definecolor{goodtext}{HTML}{006100}
+\definecolor{medium}{HTML}{FCE4D6}
+\definecolor{mediumtext}{HTML}{9C5700}
+\definecolor{bad}{HTML}{FFC7CE}
+\definecolor{badtext}{HTML}{9C0006}
+\definecolor{grey}{HTML}{E7E6E6}
+
+\newcommand{\G}{\cellcolor{good}\textcolor{goodtext}{\textbf{YES}}}
+\newcommand{\PARTIAL}{\cellcolor{medium}\textcolor{mediumtext}{\textbf{PARTIAL}}}
+\newcommand{\N}{\cellcolor{bad}\textcolor{badtext}{\textbf{NO}}}
+
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\Centering\arraybackslash}p{#1}}
+
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{3pt}
+
+\begin{document}
+
+% ============================================================
+% PAGE 1
+% ============================================================
+\begin{landscape}
+\thispagestyle{empty}
+
+{\Large\bfseries EAGLE -- WP2.3: Open-source software comparison}
+
+\vspace{0.15cm}
+{\small
+\textbf{Purpose of the comparison.}
+The software must ultimately support the WP2.3 chain:
+\textit{Spanish network data $\rightarrow$ electrical network model $\rightarrow$ power-system analysis
+$\rightarrow$ line/voltage/grid constraints $\rightarrow$ nodal hosting-capacity assessment
+$\rightarrow$ spatial indicators for SiteOptimizer.}
+The project proposal specifically targets HV and, where possible, MV network data, line saturation,
+regional flexibility requirements and nodal grid hosting capacity.
+}
+
+\vspace{0.12cm}
+{\scriptsize
+\textbf{Colour code:}
+\G\; capability is well aligned with the EAGLE requirement;
+\PARTIAL\; capability exists or can be achieved, but is secondary, indirect, requires additional workflow,
+or is not the tool's main strength;
+\N\; the tool does not provide that function by itself.
+}
+
+\vspace{0.15cm}
+
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{L{3.45cm}|C{1.72cm}|C{1.72cm}|C{1.72cm}|C{1.72cm}|C{1.72cm}|L{4.15cm}}
+\rowcolor{header}
+\color{white}\textbf{Requirement} &
+\color{white}\textbf{PyPSA} &
+\color{white}\textbf{pandapower} &
+\color{white}\textbf{OpenDSS} &
+\color{white}\textbf{MATPOWER} &
+\color{white}\textbf{GridCal} &
+\color{white}\textbf{Comment for EAGLE} \\ \hline
+
+Open-source &
+\G & \G & \G & \G & \G &
+All five are open-source tools and therefore compatible with the project's open-source requirement. \\ \hline
+
+Python / programmatic workflow &
+\G & \G & \PARTIAL & \PARTIAL & \G &
+Python is especially convenient for EAGLE because data acquisition, preprocessing, modelling and SiteOptimizer are expected to be highly programmatic. \\ \hline
+
+Create/import buses, lines, transformers and loads &
+\G & \G & \G & \G & \G &
+Core requirement for reconstructing the Spanish electrical network. \\ \hline
+
+HV transmission modelling &
+\G & \G & \PARTIAL & \G & \G &
+PyPSA, pandapower, MATPOWER and GridCal are directly relevant to transmission-level modelling; OpenDSS is primarily distribution-oriented. \\ \hline
+
+MV / distribution modelling &
+\PARTIAL & \G & \G & \PARTIAL & \G &
+Important if EAGLE extends the initial HV model towards MV. \\ \hline
+
+AC power flow &
+\PARTIAL & \G & \G & \G & \G &
+A key requirement for checking voltages and branch flows. PyPSA's current core is strongly oriented to linearised network formulations; this should be checked against the exact study methodology. \\ \hline
+
+DC / linear power-flow capability &
+\G & \G & \PARTIAL & \G & \G &
+Useful for large-scale screening and repeated spatial scenarios. \\ \hline
+
+Optimal Power Flow (OPF) &
+\G & \G & \PARTIAL & \G & \G &
+Relevant for constrained operation and optimisation-based capacity studies. \\ \hline
+
+Time-series simulation &
+\G & \G & \G & \PARTIAL & \G &
+Useful because grid constraints can depend on time-varying demand and renewable generation. \\ \hline
+
+Line loading / thermal-limit analysis &
+\G & \G & \G & \G & \G &
+Directly linked to T2.3's explicit focus on line saturation / grid constraints. \\ \hline
+
+Voltage / operational constraints &
+\G & \G & \G & \G & \G &
+Needed to define feasible connection/capacity conditions, not just line loading. \\ \hline
+
+Contingency / security analysis &
+\G & \G & \PARTIAL & \G & \G &
+Potentially important later if the hosting-capacity methodology includes security criteria. Exact EAGLE requirement is not yet fixed. \\ \hline
+
+Hosting-capacity assessment &
+\PARTIAL & \PARTIAL & \G & \PARTIAL & \PARTIAL &
+Hosting capacity is primarily a methodology built on repeated power-flow/OPF/constraint calculations; it is not equivalent to a single built-in button. OpenDSS has particularly strong HC use in the literature. \\ \hline
+
+Large-scale network capability &
+\G & \G & \PARTIAL & \G & \G &
+EAGLE needs a country/European-scale model rather than a small feeder only. \\ \hline
+
+Optimisation / planning &
+\G & \G & \PARTIAL & \G & \G &
+Relevant because the final EAGLE framework includes long-term planning and multi-criteria localisation. \\ \hline
+
+Geographic coordinates / spatial network attributes &
+\G & \G & \PARTIAL & \PARTIAL & \G &
+Essential for converting electrical results into spatial indicators for SiteOptimizer. \\ \hline
+
+GIS integration / map visualisation &
+\PARTIAL & \G & \PARTIAL & \N & \PARTIAL &
+GIS is not the same as electrical simulation. QGIS/GeoPandas can be used alongside the electrical solver. \\ \hline
+
+Import/open-network-data compatibility &
+\G & \G & \G & \G & \G &
+All can be populated from external data; the practical question is how much conversion/preprocessing is required. \\ \hline
+
+Export node/line results for SiteOptimizer &
+\G & \G & \PARTIAL & \PARTIAL & \G &
+The preferred workflow should expose machine-readable node/line results, coordinates and constraint indicators. \\ \hline
+
+\rowcolor{header2}
+\textbf{Overall role in EAGLE} &
+\textbf{Strong candidate} &
+\textbf{Strong candidate} &
+\textbf{Specialist / secondary} &
+\textbf{Strong solver} &
+\textbf{Strong candidate} &
+\textbf{This is a working screening, not the final software decision.} \\ \hline
+
+\end{longtable}
+
+\vfill
+{\scriptsize
+\textbf{Interpretation note.}
+The colours are a \emph{working EAGLE-oriented classification}, not a claim that a red/orange tool is
+generally ``bad''. They answer the narrower question: \textit{how directly does this tool satisfy the
+requirements we currently understand for WP2.3?} Hosting capacity itself is a study methodology and may
+need to be implemented on top of a power-flow/OPF engine.
+
+\textbf{Sources checked:}
+PyPSA official documentation and website; pandapower official documentation; MATPOWER documentation;
+OpenDSS official documentation; the EAGLE proposal supplied in the project; and the Consensus literature
+screening supplied in this conversation.
+}
+
+\end{landscape}
+
+\newpage
+
+% ============================================================
+% PAGE 2
+% ============================================================
+\begin{landscape}
+\thispagestyle{empty}
+
+{\Large\bfseries EAGLE -- WP2.3: Open data sources for the Spanish grid}
+
+\vspace{0.15cm}
+{\small
+\textbf{Purpose of the comparison.}
+The data source should help construct a geographically referenced electrical model of Spain capable of
+supporting later grid-constraint and hosting-capacity analysis. Based on the project, the most important
+information includes HV topology (and MV where possible), buses/substations, line connections, voltage
+levels, geographical location, electrical parameters, line capacity/limits, generation and demand.
+}
+
+\vspace{0.12cm}
+{\scriptsize
+\textbf{Colour code:}
+\G\; useful/valid for the requirement;
+\PARTIAL\; partial, incomplete, indirect or requiring combination with another source;
+\N\; not provided by the source or not its purpose.
+}
+
+\vspace{0.15cm}
+
+\renewcommand{\arraystretch}{1.22}
+\begin{longtable}{L{3.15cm}|C{1.65cm}|C{1.65cm}|C{1.65cm}|C{1.65cm}|C{1.65cm}|C{1.65cm}|C{1.65cm}|L{3.0cm}}
+\rowcolor{header}
+\color{white}\textbf{Data requirement} &
+\color{white}\textbf{PyPSA-Eur} &
+\color{white}\textbf{GridKit} &
+\color{white}\textbf{MapYourGrid / OSM} &
+\color{white}\textbf{SciGRID} &
+\color{white}\textbf{OpenGridMap} &
+\color{white}\textbf{REE} &
+\color{white}\textbf{ENTSO-E} &
+\color{white}\textbf{Comment} \\ \hline
+
+Spain coverage &
+\G & \G & \G & \G & \PARTIAL & \G & \G &
+Spain is within the European/Spanish coverage of the relevant network sources; exact version and scope must be checked. \\ \hline
+
+HV transmission topology &
+\G & \G & \PARTIAL & \G & \PARTIAL & \G & \G &
+PyPSA-Eur directly provides a transmission-level model; GridKit/SciGRID are particularly useful for topology extraction. \\ \hline
+
+MV network detail &
+\N & \PARTIAL & \PARTIAL & \PARTIAL & \PARTIAL & \PARTIAL & \PARTIAL &
+PyPSA-Eur explicitly represents AC lines at/above 220 kV; MV requires additional sources/data. \\ \hline
+
+Buses / substations &
+\G & \G & \G & \G & \G & \G & \G &
+Core topology information is available, but field completeness differs between sources. \\ \hline
+
+Line connections / topology &
+\G & \G & \G & \G & \PARTIAL & \G & \G &
+GridKit explicitly converts mapped infrastructure into connected topology. \\ \hline
+
+Geographical coordinates / geometry &
+\G & \G & \G & \G & \G & \G & \G &
+Critical for the spatial assessment and later SiteOptimizer GIS layer. \\ \hline
+
+Voltage level &
+\G & \G & \G & \G & \PARTIAL & \G & \G &
+Voltage information is useful for filtering the network by HV level; OSM-derived sources may have missing/ambiguous tags. \\ \hline
+
+Line length &
+\G & \PARTIAL & \G & \G & \PARTIAL & \G & \G &
+Useful for reconstructing electrical parameters and validating geometry. \\ \hline
+
+Electrical R/X/B parameters &
+\G & \PARTIAL & \PARTIAL & \G & \N & \PARTIAL & \PARTIAL &
+This is a major discriminator: some topology sources require assumptions or external data for impedance. \\ \hline
+
+Thermal / apparent-power limits &
+\G & \PARTIAL & \PARTIAL & \PARTIAL & \N & \G & \PARTIAL &
+A critical field for line-loading/capacity studies. Availability and definition must be checked at asset level. \\ \hline
+
+Generation connected to network &
+\G & \PARTIAL & \PARTIAL & \PARTIAL & \PARTIAL & \G & \G &
+PyPSA-Eur includes conventional plants and renewable availability; REE/ENTSO-E provide complementary system information. \\ \hline
+
+Spatial demand / load &
+\G & \N & \PARTIAL & \PARTIAL & \PARTIAL & \G & \G &
+Needed to establish the baseline operating state before adding hypothetical data-centre loads. \\ \hline
+
+Time-series demand &
+\G & \N & \N & \PARTIAL & \N & \G & \G &
+Important for scenario/time-series studies; topology datasets alone do not provide this. \\ \hline
+
+Time-series renewable generation / availability &
+\G & \N & \N & \PARTIAL & \N & \G & \G &
+Useful for time-dependent congestion and hosting-capacity scenarios. \\ \hline
+
+Existing access/hosting-capacity information &
+\PARTIAL & \N & \N & \N & \N & \G & \G &
+REE currently publishes demand and generation access-capacity information by transport-grid node; this is valuable as a benchmark/validation layer. \\ \hline
+
+Directly usable as an electrical model &
+\G & \PARTIAL & \N & \PARTIAL & \N & \PARTIAL & \PARTIAL &
+PyPSA-Eur is already a model dataset; GIS/topology sources normally require conversion and parameter completion. \\ \hline
+
+Useful GIS/spatial layer &
+\G & \G & \G & \G & \G & \G & \G &
+Several sources are complementary rather than alternatives. \\ \hline
+
+\rowcolor{header2}
+\textbf{Likely EAGLE role} &
+\textbf{Base model} &
+\textbf{Topology} &
+\textbf{GIS complement} &
+\textbf{Topology + parameters} &
+\textbf{GIS complement} &
+\textbf{Spanish reference} &
+\textbf{European reference} &
+\textbf{Likely multi-source workflow} \\ \hline
+
+\end{longtable}
+
+\vfill
+{\scriptsize
+\textbf{Important data-quality note.}
+The EAGLE proposal explicitly identifies poor quality, data gaps and insufficient granularity as risks for
+WP2--WP4. Therefore, a source being marked \G does not mean that every required field is guaranteed for
+every Spanish asset; it means that the source is a credible/usable source for that data category and should
+be investigated further.
+
+\textbf{Particularly important finding for the next phase:}
+PyPSA-Eur's current transmission representation is at/above 220 kV, while Red Eléctrica reports a Spanish
+transport network including 400 kV and 220 kV on the mainland and lower transport voltages in non-peninsular
+systems. Therefore, the Spanish model may need a combination of PyPSA-Eur/other open topology data with
+Spanish sources if EAGLE requires more detail than the European transmission model provides.
+
+\textbf{Sources checked:}
+PyPSA-Eur documentation; GridKit/Zenodo and GridKit repository; MapYourGrid; Red Eléctrica public data and
+network/access-capacity pages; European Commission EIGL documentation describing GridKit and SciGRID; and
+the EAGLE proposal supplied in the project.
+}
+
+\end{landscape}
+
+\end{document}

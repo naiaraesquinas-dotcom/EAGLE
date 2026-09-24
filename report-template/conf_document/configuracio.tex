@@ -1,0 +1,151 @@
+% Configuration and package preamble for UPC reports
+% Adapted from Template_UPC for ETSEIB - Integration of Renewable Energies in Electrical Grids
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% Typography & Fonts
+\usepackage{tgpagella}       % TeX Gyre Pagella (Palatino) body font
+\usepackage{mathpazo}        % Matching Palatino math font
+\usepackage{microtype}       % Improved justification and kerning
+\usepackage{parskip}
+\setlength{\parskip}{0.75em}
+\setlength{\footskip}{45pt}
+\setlength{\headheight}{16pt}
+
+% Page Geometry (UPC format)
+\usepackage[a4paper, top=3cm, bottom=3.2cm, inner=3cm, outer=2cm, footnotesep=1cm, heightrounded]{geometry}
+
+% Math & Engineering Packages
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{commath}
+\usepackage{siunitx}
+\sisetup{
+  detect-all,
+  per-mode = symbol,
+  range-phrase = {--},
+  range-units = single
+}
+
+% Graphics & Figures
+\usepackage{graphicx}
+\graphicspath{{figs/}{figures/logos/}{../../report-template/figures/logos/}{report-template/figures/logos/}}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage[section]{placeins}
+
+% Tables & Formatting
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{scrextend}
+\usepackage{verbatim}
+
+% Source Code Listings (MATLAB & Python)
+\usepackage{xcolor}
+\usepackage{listings}
+
+\definecolor{codegreen}{rgb}{0.13,0.54,0.13}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.97,0.97,0.97}
+
+\lstdefinestyle{matlabstyle}{
+  language=Matlab,
+  backgroundcolor=\color{backcolour},
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{blue},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  keepspaces=true,
+  numbers=left,
+  numbersep=8pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2,
+  frame=single
+}
+
+\lstdefinestyle{pythonstyle}{
+  language=Python,
+  backgroundcolor=\color{backcolour},
+  commentstyle=\color{codegray},
+  keywordstyle=\color{blue},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{teal},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=true,
+  breaklines=true,
+  captionpos=b,
+  keepspaces=true,
+  numbers=left,
+  numbersep=8pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=4,
+  frame=single
+}
+
+\lstset{style=matlabstyle}
+
+% Chapter & Section Heading Styles
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]
+  {\normalfont\LARGE\bfseries}
+  {\thechapter.}
+  {0.5em}
+  {}
+
+\titlespacing*{\chapter}
+  {0pt}
+  {1.5ex plus .2ex}
+  {1.5ex plus .2ex}
+
+% Running Headers & Footers (fancyhdr)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+% Header
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\nouppercase{\leftmark}}
+\fancyhead[LO]{\nouppercase{\rightmark}}
+
+% Footer
+\fancyfoot[LE,RO]{\includegraphics[height=0.85cm]{logo_etseib.jpg}}
+\fancyfoot[RE,LO]{\small\ReportCourseShort}
+
+% Redefine plain page style (used on first page of chapters)
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+% Hyperlinks
+\usepackage[colorlinks=true, allcolors=blue, plainpages=false, pdfpagelabels]{hyperref}
+
+% Metadata Defaults (Can be overridden in main.tex before or after including configuracio)
+\providecommand{\ReportUniversity}{Universitat Politècnica de Catalunya}
+\providecommand{\ReportSchool}{ETSEIB -- Escola Tècnica Superior d'Enginyeria Industrial de Barcelona}
+\providecommand{\ReportDegree}{Master's Degree in Electric Power Systems and Drives}
+\providecommand{\ReportCourse}{Smart Grids}
+\providecommand{\ReportTitle}{Course Project Report}
+\providecommand{\ReportAuthors}{Naiara Esquinas Muñoz \and Andjela Gorasevic \and Zubia \and Florian}
+\providecommand{\ReportLecturer}{Paula Gonzàlez Font de Rubiat}
+\providecommand{\ReportDate}{\today}
+
+\raggedbottom

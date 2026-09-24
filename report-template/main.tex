@@ -1,0 +1,32 @@
+\documentclass[a4paper,11pt,titlepage,twoside]{report}
+
+% Report Metadata
+\newcommand{\ReportTitle}{Smart Grids}
+\newcommand{\ReportSubtitle}{Course Project Report}
+\newcommand{\ReportDate}{\today}
+
+% Document Configuration & Styling
+\input{conf_document/configuracio}
+
+\begin{document}
+
+% Title Page
+\input{conf_document/title_page}
+
+% Frontmatter
+\pagenumbering{roman}
+\tableofcontents
+\listoffigures
+\listoftables
+
+\clearpage
+\pagenumbering{arabic}
+
+% Chapters
+\input{chapters/chapter1}
+
+% Bibliography
+\bibliographystyle{IEEEtran}
+% \bibliography{refs}
+
+\end{document}

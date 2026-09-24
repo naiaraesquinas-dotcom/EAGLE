@@ -1,0 +1,51 @@
+% Reusable UPC ETSEIB Report Title Page
+\begin{titlepage}
+  % Header logos: UPC (left) and ETSEIB (right)
+  \noindent
+  \includegraphics[height=1.3cm]{logo_upc.png}\hfill
+  \includegraphics[height=1.3cm]{logo_etseib.jpg}
+  \par
+  \vspace{18mm}
+
+  % University & Course Details
+  \begin{center}
+    {\scshape\Large \ReportUniversity\par}
+    \vspace{2mm}
+    {\large \ReportSchool\par}
+    \vspace{10mm}
+    \ifx\ReportDegree\empty\else
+      \vspace{1mm}
+      {\normalsize \ReportDegree\par}
+    \fi
+
+    \vspace{25mm}
+
+    % Report Title & Subtitle
+    {\Huge \bfseries \ReportTitle\par}
+    \ifx\ReportSubtitle\empty\else
+      \vspace{5mm}
+      {\LARGE \ReportSubtitle\par}
+    \fi
+
+    \vfill
+  \end{center}
+
+  % Metadata Footer: Authors, Lecturer, Date
+  \begin{flushleft}
+    \large
+    \providecommand{\ReportAuthorsBlock}{%
+      \begin{tabular}[t]{@{}l@{}}
+        Andjela Gorasevic \\
+        Florian\\
+        Naiara Esquinas Muñoz\\
+        Zubia 
+      \end{tabular}%
+    }
+    \begin{tabular}{@{}p{3.2cm}l@{}}
+      \textbf{Authors:}  & \ReportAuthorsBlock \\[4mm]
+      \textbf{Lecturer:} & \ReportLecturer \\[2mm]
+      \textbf{Date:}     & \ReportDate \\
+    \end{tabular}
+  \end{flushleft}
+  \vspace{8mm}
+\end{titlepage}
