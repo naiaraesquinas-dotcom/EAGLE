@@ -46,9 +46,23 @@
 \usepackage{multirow}
 \usepackage{scrextend}
 \usepackage{verbatim}
+\usepackage{pdflscape}
+\usepackage[table]{xcolor}
+
+% Custom table column types
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% EAGLE table colours
+\definecolor{header}{RGB}{31,78,121}
+\definecolor{header2}{RGB}{217,225,242}
+
+% EAGLE comparison indicators
+\newcommand{\G}{\cellcolor{green!30}\checkmark}
+\newcommand{\PARTIAL}{\cellcolor{orange!35}$\sim$}
+\newcommand{\N}{\cellcolor{red!30}$\times$}
 
 % Source Code Listings (MATLAB & Python)
-\usepackage{xcolor}
 \usepackage{listings}
 
 \definecolor{codegreen}{rgb}{0.13,0.54,0.13}
