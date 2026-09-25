@@ -233,14 +233,8 @@ INPUT C:\Program Files\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Program Files\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Program Files\MiKTeX\tex\latex\caption\ltcaption.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\caption\ltcaption.sty
-INPUT .\main.out
-INPUT .\main.out
-INPUT main.out
-INPUT main.out
-OUTPUT main.pdf
-INPUT .\main.out
-INPUT .\main.out
 OUTPUT main.out
+OUTPUT main.pdf
 INPUT .\conf_document\title_page.tex
 INPUT .\conf_document\title_page.tex
 INPUT .\conf_document\title_page.tex
@@ -263,7 +257,6 @@ INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplrc8t.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr8t.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr8t.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplb8t.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr8t.tfm
 INPUT C:\Program Files\MiKTeX\tex\latex\psnfss\ot1ppl.fd
 INPUT C:\Program Files\MiKTeX\tex\latex\psnfss\ot1ppl.fd
 INPUT C:\Program Files\MiKTeX\tex\latex\psnfss\ot1ppl.fd
@@ -314,52 +307,18 @@ INPUT C:\Users\naiar\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT C:\Program Files\MiKTeX\fonts\enc\dvips\base\8r.enc
 INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\palatino\pplr8t.vf
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr8r.tfm
-INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\palatino\pplr8t.vf
-INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr8r.tfm
 INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\palatino\pplb8t.vf
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplb8r.tfm
-INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\palatino\pplr8t.vf
-INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr8r.tfm
 INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\palatino\pplb8t.vf
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplb8r.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr8t.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplb8t.tfm
-INPUT .\main.toc
-INPUT .\main.toc
-INPUT main.toc
-INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplb8t.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr7t.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr7t.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr7t.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7m.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7m.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7m.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7y.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7y.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7y.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7v.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7v.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7v.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7t.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7t.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7t.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 OUTPUT main.toc
 INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\palatino\pplb8t.vf
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplb8r.tfm
-INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\palatino\pplb8t.vf
-INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplb8r.tfm
-INPUT .\main.lof
-INPUT .\main.lof
-INPUT main.lof
+INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\palatino\pplr8t.vf
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr8r.tfm
 OUTPUT main.lof
-INPUT .\main.lot
-INPUT .\main.lot
-INPUT main.lot
 OUTPUT main.lot
 INPUT .\chapters\chapter1.tex
 INPUT .\chapters\chapter1.tex
@@ -368,20 +327,30 @@ INPUT .\chapters\chapter1.tex
 INPUT chapters\chapter1.tex
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr8t.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplb8t.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ectt1095.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\ectt0900.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr8t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplb8t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplri8t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7m.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7m.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7m.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7y.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7y.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7y.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7v.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7v.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7v.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\zplmr7t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr8t.tfm
-INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\palatino\pplb8t.vf
-INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplb8r.tfm
-INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\palatino\pplr8t.vf
-INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr8r.tfm
-INPUT main.aux
-INPUT .\main.out
-INPUT .\main.out
-INPUT C:\Users\naiar\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt0900.pk
-INPUT C:\Users\naiar\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt0900.pk
-INPUT C:\Program Files\MiKTeX\fonts\type1\urw\palatino\uplb8a.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\urw\palatino\uplb8a.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\urw\palatino\uplr8a.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\urw\palatino\uplr8a.pfb
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplb8t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplb8t.tfm
