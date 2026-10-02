@@ -1,2 +1,20 @@
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {1}Software opensource}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {1}Open-Source Softwares}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Software Overview}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Software Description}{3}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}PyPSA}{3}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}pandapower}{5}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}OpenDSS}{7}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}MATPOWER}{10}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}VeraGrid (formerly GridCal)}{12}{subsection.1.2.5}%
+\contentsline {chapter}{\numberline {2}Data Sources for the EAGLE Model}{15}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Data Sources Overview}{15}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Data Source Descriptions}{17}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}REE -- REData}{17}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}CNMC -- Electricity Network Access Capacity Maps}{17}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}PyPSA-Eur}{19}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}REE -- Transmission Network Access Capacity}{20}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}ENTSO-E -- Transparency Platform and Grid Data}{22}{subsection.2.2.5}%
+\contentsline {chapter}{\numberline {3}Power Grid Reconstruction Methodologies}{25}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Xiong et al. -- OSM/PyPSA}{25}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Rivera et al. -- OSM/Transnet}{27}{section.3.2}%

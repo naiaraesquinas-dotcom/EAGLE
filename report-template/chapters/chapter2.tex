@@ -1,0 +1,749 @@
+
+\chapter{Data Sources for the EAGLE Model}
+
+\section{Data Sources Overview}
+
+\begin{table}[htbp]
+\centering
+\caption{Comparison of data sources for EAGLE requirements}
+\label{tab:eagle_data_sources}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{2.5pt}
+
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{
+>{\raggedright\arraybackslash}p{4.0cm}
+>{\raggedright\arraybackslash}p{2.8cm}
+>{\raggedright\arraybackslash}p{2.8cm}
+>{\raggedright\arraybackslash}p{3.6cm}
+>{\raggedright\arraybackslash}p{3.2cm}
+>{\raggedright\arraybackslash}p{3.2cm}}
+\hline
+
+\textbf{EAGLE Requirement} &
+\textbf{REData} &
+\textbf{CNMC} &
+\textbf{PyPSA-Eur} &
+\textbf{REE Access Capacity} &
+\textbf{ENTSO-E} \\
+
+\hline
+
+\textbf{Historical demand} &
+\cellcolor{green!25} Direct &
+\cellcolor{red!25} No &
+\cellcolor{green!25} Time series &
+\cellcolor{red!25} No &
+\cellcolor{green!25} Historical load \\
+
+\textbf{Historical generation} &
+\cellcolor{green!25} Direct &
+\cellcolor{red!25} No &
+\cellcolor{orange!25} Generation datasets &
+\cellcolor{red!25} No &
+\cellcolor{green!25} Actual generation \\
+
+\textbf{Energy mix} &
+\cellcolor{green!25} Direct &
+\cellcolor{red!25} No &
+\cellcolor{orange!25} Modelled generation mix &
+\cellcolor{red!25} No &
+\cellcolor{green!25} By production type \\
+
+\textbf{Grid location} &
+\cellcolor{orange!25} Limited &
+\cellcolor{orange!25} Access nodes / maps &
+\cellcolor{green!25} Georeferenced network &
+\cellcolor{green!25} Transmission nodes &
+\cellcolor{orange!25} Dataset-dependent \\
+
+\textbf{Substations / buses} &
+\cellcolor{red!25} No &
+\cellcolor{orange!25} Access nodes / substations &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Transmission nodes &
+\cellcolor{orange!25} Grid-model dependent \\
+
+\textbf{Transmission lines} &
+\cellcolor{red!25} No &
+\cellcolor{red!25} No &
+\cellcolor{green!25} Yes &
+\cellcolor{red!25} No &
+\cellcolor{orange!25} Grid datasets / CGMES \\
+
+\textbf{Connected topology} &
+\cellcolor{red!25} No &
+\cellcolor{red!25} No &
+\cellcolor{green!25} Yes &
+\cellcolor{red!25} No &
+\cellcolor{orange!25} Grid-model dependent \\
+
+\textbf{Line voltage} &
+\cellcolor{red!25} No &
+\cellcolor{orange!25} Node voltage levels &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Node voltage &
+\cellcolor{orange!25} Grid-model dependent \\
+
+\textbf{Circuits / conductors} &
+\cellcolor{red!25} No &
+\cellcolor{red!25} No &
+\cellcolor{orange!25} OSM-derived / processed &
+\cellcolor{red!25} No &
+\cellcolor{orange!25} Grid-model dependent \\
+
+\textbf{R / X parameters} &
+\cellcolor{red!25} No &
+\cellcolor{red!25} No &
+\cellcolor{orange!25} Available / partly derived\textsuperscript{*} &
+\cellcolor{red!25} No &
+\cellcolor{orange!25} Possible in detailed CGMES models \\
+
+\textbf{Line capacity} &
+\cellcolor{red!25} No &
+\cellcolor{red!25} No\textsuperscript{**} &
+\cellcolor{orange!25} Modelled / estimated &
+\cellcolor{red!25} No\textsuperscript{***} &
+\cellcolor{orange!25} Dataset-dependent \\
+
+\textbf{Access capacity} &
+\cellcolor{red!25} No &
+\cellcolor{green!25} Direct &
+\cellcolor{red!25} No &
+\cellcolor{green!25} Direct, node-level &
+\cellcolor{red!25} Not primary purpose \\
+
+\textbf{HVDC} &
+\cellcolor{orange!25} Operational information &
+\cellcolor{red!25} Not a network dataset &
+\cellcolor{green!25} Yes &
+\cellcolor{red!25} No &
+\cellcolor{orange!25} Interconnection / grid data \\
+
+\textbf{Coordinates / GIS} &
+\cellcolor{orange!25} Limited &
+\cellcolor{orange!25} Interactive maps &
+\cellcolor{green!25} Yes &
+\cellcolor{orange!25} Node identification &
+\cellcolor{orange!25} Dataset-dependent \\
+
+\textbf{Spatial / nodal loads} &
+\cellcolor{red!25} No &
+\cellcolor{red!25} No &
+\cellcolor{orange!25} Spatially allocated / modelled &
+\cellcolor{red!25} No &
+\cellcolor{red!25} Mostly aggregated \\
+
+\textbf{Time-series demand} &
+\cellcolor{green!25} Yes &
+\cellcolor{red!25} No &
+\cellcolor{green!25} Yes &
+\cellcolor{red!25} No &
+\cellcolor{green!25} Yes \\
+
+\textbf{Renewable availability} &
+\cellcolor{orange!25} Historical generation &
+\cellcolor{red!25} No &
+\cellcolor{green!25} Availability time series &
+\cellcolor{red!25} No &
+\cellcolor{green!25} Generation / forecasts \\
+
+\textbf{Power plants / generators} &
+\cellcolor{orange!25} Aggregated data &
+\cellcolor{red!25} No &
+\cellcolor{green!25} Yes &
+\cellcolor{red!25} No &
+\cellcolor{orange!25} Mostly aggregated data \\
+
+\textbf{Cross-border flows} &
+\cellcolor{green!25} Spanish exchanges &
+\cellcolor{red!25} No &
+\cellcolor{green!25} Modelled interconnections &
+\cellcolor{red!25} No &
+\cellcolor{green!25} Direct \\
+
+\textbf{Simulation-ready model} &
+\cellcolor{red!25} No &
+\cellcolor{red!25} No &
+\cellcolor{green!25} PyPSA network &
+\cellcolor{red!25} No &
+\cellcolor{orange!25} Detailed grid models may require conversion \\
+
+\textbf{CIM / CGMES} &
+\cellcolor{red!25} No &
+\cellcolor{red!25} No &
+\cellcolor{red!25} Not native source format &
+\cellcolor{red!25} No &
+\cellcolor{green!25} Core grid-exchange standard \\
+
+\textbf{Automation} &
+\cellcolor{green!25} REST API &
+\cellcolor{orange!25} Maps / operator data &
+\cellcolor{green!25} Automated workflow &
+\cellcolor{green!25} CSV / XLSX processing &
+\cellcolor{green!25} REST API \\
+
+\textbf{Downloadable / machine-readable data} &
+\cellcolor{green!25} Yes &
+\cellcolor{orange!25} Depends on operator &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} CSV / XLSX &
+\cellcolor{green!25} Yes \\
+
+\textbf{Open / reproducible workflow} &
+\cellcolor{orange!25} Open data / API &
+\cellcolor{orange!25} Public data &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Public official data &
+\cellcolor{orange!25} Depends on dataset\textsuperscript{****} \\
+
+\textbf{Spain coverage} &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes \\
+
+\hline
+
+\textbf{Main value for EAGLE} &
+\cellcolor{green!25}\textbf{Official Spanish operational time series} &
+\cellcolor{green!25}\textbf{Centralised T+D access-capacity reference} &
+\cellcolor{green!25}\textbf{Simulation-ready Spanish HV base model} &
+\cellcolor{green!25}\textbf{Official TSO nodal access capacity} &
+\cellcolor{green!25}\textbf{European operational and validation data} \\
+
+\hline
+
+\end{tabular}
+\end{adjustbox}
+
+\vspace{0.2cm}
+
+\begin{minipage}{0.95\textwidth}
+\footnotesize
+
+\textsuperscript{*} PyPSA-Eur provides resistance, reactance and other
+electrical parameters in the processed network model. However, some values
+are derived from reconstructed network information and standard line types
+rather than official TSO asset data.
+
+\textsuperscript{**} CNMC access capacity should not be confused with the
+thermal transmission capacity of an individual power line.
+
+\textsuperscript{***} REE access capacity represents the capability of a
+transmission-network node to accommodate additional demand or generation
+under the applicable access criteria. It should not be interpreted as the
+thermal rating of an individual transmission line.
+
+\textsuperscript{****} ENTSO-E Transparency Platform data are openly
+accessible, but detailed grid-model datasets have specific access conditions
+and some may require a formal request or additional agreements.
+
+\end{minipage}
+
+\end{table}
+
+\section{Data Source Descriptions}
+
+\subsection{REE -- REData}
+
+\begin{description}
+
+    \item[\textbf{Source:}]
+    Red Eléctrica de España (Redeia).
+
+    \item[\textbf{Access:}]
+    \url{https://www.ree.es/es/datos/apidatos}
+
+    \item[\textbf{Description:}]
+    Official data platform of the Spanish electricity system providing
+    historical and operational information through a REST API.
+
+    \item[\textbf{Relevant data:}] \hfill
+    \begin{itemize}
+        \item Electricity demand.
+        \item Generation by technology.
+        \item Generation mix.
+        \item Installed generation capacity.
+        \item Renewable generation and capacity.
+        \item Electricity balance.
+    \end{itemize}
+
+    \item[\textbf{Spatial coverage:}]
+    Spanish electricity system, including geographical disaggregation
+    for different electrical systems and regions depending on the dataset.
+
+    \item[\textbf{Temporal coverage and resolution:}]
+    Historical time series with hourly, daily, monthly or annual
+    aggregation depending on the dataset.
+
+    \item[\textbf{Data format:}]
+    JSON through the API. Some datasets can also be downloaded
+    through the web interface.
+
+    \item[\textbf{Access method:}]
+    REST API and REData web interface.
+
+    \item[\textbf{Processing required:}]
+    API queries, JSON parsing, temporal filtering, data cleaning and
+    transformation into tabular time series suitable for the EAGLE model.
+
+    \item[\textbf{Main limitations:}] \hfill
+    \begin{itemize}
+        \item Does not provide a detailed electrical topology of the
+        Spanish transmission network.
+        \item Does not provide the electrical parameters required to
+        model individual transmission lines.
+        \item Most information is aggregated rather than nodal.
+    \end{itemize}
+
+    \item[\textbf{Application in EAGLE:}]
+    Construction of realistic historical demand and generation time
+    series and validation of operational and future scenarios simulated
+    with the EAGLE model.
+
+\end{description}
+
+\subsection{CNMC -- Electricity Network Access Capacity Maps}
+
+\begin{description}
+
+    \item[\textbf{Source:}]
+    Comisión Nacional de los Mercados y la Competencia (CNMC).
+
+    \item[\textbf{Access:}]
+    \url{https://www.cnmc.es/prensa/mapas-capacidad-redes-electricas-20260415}
+
+    \item[\textbf{Description:}]
+    Official CNMC platform integrating information on available electricity
+    network access capacity published by Spanish transmission and distribution
+    system operators. Separate interactive maps are available for generation
+    and demand access capacity.
+
+    \item[\textbf{Relevant data:}] \hfill
+    \begin{itemize}
+        \item Electricity network nodes and substations.
+        \item Available generation access capacity.
+        \item Available demand access capacity.
+        \item Transmission or distribution system operator.
+        \item Province.
+        \item Voltage level.
+        \item Number of available positions at substations.
+        \item Generation access capacity differentiated by technology
+        for the transmission network.
+        \item Demand access capacity according to the applicable
+        evaluation criteria.
+    \end{itemize}
+
+    \item[\textbf{Spatial coverage:}]
+    Spanish electricity transmission and distribution networks.
+
+    \item[\textbf{Temporal coverage and resolution:}]
+    Current network access-capacity information updated monthly by the
+    corresponding transmission and distribution system operators.
+
+    \item[\textbf{Data format:}]
+    Interactive geospatial maps integrating information supplied by the
+    Spanish electricity network operators. The underlying publication
+    formats depend on the corresponding network operator.
+
+    \item[\textbf{Access method:}]
+    CNMC interactive generation and demand access-capacity maps. The
+    original information can also be consulted through the corresponding
+    transmission and distribution system operators.
+
+    \item[\textbf{Processing required:}]
+    Identification of relevant nodes and voltage levels, extraction of
+    access-capacity information and geographical/electrical matching with
+    the nodes of the EAGLE network model.
+
+    \item[\textbf{Main limitations:}] \hfill
+    \begin{itemize}
+        \item Access capacity is not equivalent to the thermal capacity
+        or rating of a transmission line.
+        \item The platform does not constitute a complete electrical
+        network model.
+        \item It does not provide the complete set of line impedance
+        parameters required for power-flow simulation.
+        \item Data originate from multiple transmission and distribution
+        system operators and may require additional harmonisation.
+        \item Available access capacities should not necessarily be treated
+        as simultaneously available or directly additive between nodes.
+    \end{itemize}
+
+    \item[\textbf{Application in EAGLE:}]
+    Provides an official and frequently updated reference for the available
+    generation and demand access capacity at Spanish electricity network
+    nodes. Particularly relevant for validating or complementing the
+    hosting-capacity indicators calculated by EAGLE and for identifying
+    areas where new electricity demand may face connection constraints.
+
+\end{description}
+
+\subsection{PyPSA-Eur}
+
+\begin{description}
+
+    \item[\textbf{Source:}]
+    PyPSA-Eur project, currently maintained by the Department of Digital
+    Transformation in Energy Systems at the Technical University of Berlin.
+
+    \item[\textbf{Access:}] \hfill
+    \begin{itemize}
+
+        \item Official PyPSA-Eur repository:
+        \url{https://github.com/PyPSA/pypsa-eur}
+
+        \item Latest PyPSA-Eur releases:
+        \url{https://github.com/PyPSA/pypsa-eur/releases}
+
+        \item Official PyPSA-Eur documentation:
+        \url{https://pypsa-eur.readthedocs.io/en/latest/}
+
+        \item Data sources and data versioning:
+        \url{https://pypsa-eur.readthedocs.io/en/latest/data_sources/}
+
+        \item PyPSA public data repository:
+        \url{https://data.pypsa.org/}
+
+    \end{itemize}
+
+    \item[\textbf{Description:}]
+    Open model dataset of the European energy system at transmission-network
+    level. PyPSA-Eur combines multiple open data sources through a reproducible
+    Snakemake workflow and produces a simulation-ready European electricity
+    network compatible with the PyPSA modelling framework.
+
+    \item[\textbf{Relevant data:}] \hfill
+    \begin{itemize}
+        \item High-voltage electricity transmission network.
+        \item Network buses and substations.
+        \item AC transmission lines and cables.
+        \item HVDC links.
+        \item Geographical coordinates and network geometry.
+        \item Voltage levels.
+        \item Electrical line parameters.
+        \item Transmission capacities.
+        \item Existing power plants, including location, capacity and
+        technology.
+        \item Electricity demand time series.
+        \item Spatial distribution of electricity demand.
+        \item Renewable generation availability time series.
+        \item Geographical wind and solar generation potentials.
+        \item Additional energy-system data used for sector-coupled
+        modelling.
+    \end{itemize}
+
+    \item[\textbf{Spatial coverage:}]
+    European energy system covering the ENTSO-E area, including Spain.
+    The default electricity network represents the high-voltage
+    transmission system, while lower voltage thresholds can optionally
+    be considered when constructing the network.
+
+    \item[\textbf{Temporal coverage and resolution:}]
+    Depends on the individual dataset used by the PyPSA-Eur workflow.
+    The model supports hourly time-series representation and combines
+    network data with historical electricity demand, renewable-resource
+    and energy-system datasets. Input datasets are independently
+    versioned to ensure reproducibility.
+
+    \item[\textbf{Data format:}]
+    Multiple machine-readable formats are used throughout the workflow,
+    including CSV, GeoJSON and NetCDF. The final electricity network can
+    be stored as a PyPSA network in NetCDF format.
+
+    \item[\textbf{Access method:}]
+    Open-source PyPSA-Eur repository and automated data-retrieval workflow.
+    Input datasets can be retrieved automatically according to the versions
+    defined by PyPSA-Eur. Publicly redistributable datasets are also mirrored
+    through the PyPSA data infrastructure.
+
+    \item[\textbf{Processing required:}]
+    Configuration of the PyPSA-Eur workflow, selection of Spain as the
+    geographical scope, retrieval of the required input datasets and
+    construction of the electricity network. Additional validation and
+    replacement of estimated parameters with official Spanish data should
+    be performed where higher accuracy is required.
+
+    \item[\textbf{Main limitations:}] \hfill
+    \begin{itemize}
+        \item The transmission network is primarily reconstructed from
+        OpenStreetMap rather than obtained directly from an official
+        Spanish TSO electrical model.
+        \item Some electrical network parameters and capacities are derived
+        or estimated rather than obtained directly from official TSO data.
+        \item Completeness and accuracy therefore depend partly on the
+        underlying OpenStreetMap information and reconstruction procedure.
+        \item Different input datasets have different reference years,
+        licences and update frequencies.
+        \item The European model may require Spanish-specific validation
+        and enrichment for detailed nodal hosting-capacity studies.
+    \end{itemize}
+
+    \item[\textbf{Application in EAGLE:}]
+    Strong candidate for the initial electrical-network dataset of the
+    EAGLE model. PyPSA-Eur can provide a geographically referenced and
+    simulation-ready representation of the Spanish high-voltage transmission
+    network together with generation, demand and renewable-resource
+    information. The Spanish subset can be used as the initial EAGLE network
+    and subsequently validated, corrected and enriched with official Spanish
+    sources such as REData, CNMC and Red Eléctrica.
+
+\end{description}
+
+% ============================================================
+% REE ACCESS CAPACITY
+% ============================================================
+
+\subsection{REE -- Transmission Network Access Capacity}
+
+\begin{description}
+
+    \item[\textbf{Source:}]
+    Red Eléctrica de España (Redeia), as Spanish Transmission System
+    Operator (TSO).
+
+    \item[\textbf{Access:}] \hfill
+    \begin{itemize}
+
+        \item Demand access capacity:
+        \url{https://www.ree.es/es/clientes/consumidor/acceso-conexion/conoce-la-capacidad-de-acceso}
+
+        \item Generation access capacity:
+        \url{https://www.ree.es/es/clientes/generador/acceso-conexion/conoce-la-capacidad-de-acceso}
+
+        \item Status of demand access requests:
+        \url{https://www.ree.es/es/clientes/consumidor/acceso-conexion/conoce-el-estado-de-las-solicitudes}
+
+    \end{itemize}
+
+    \item[\textbf{Description:}]
+    Official information published by Red Eléctrica on the available and
+    occupied access capacity at nodes of the Spanish transmission network.
+    Separate datasets are published for electricity demand and generation.
+    The information provides a direct reference for evaluating the capability
+    of transmission-network nodes to accommodate additional consumption or
+    generation.
+
+    \item[\textbf{Relevant data:}] \hfill
+    \begin{itemize}
+        \item Transmission-network nodes.
+        \item Voltage level of the connection node.
+        \item Available demand access capacity.
+        \item Occupied demand access capacity.
+        \item Available generation access capacity.
+        \item Occupied generation access capacity.
+        \item Capacity associated with existing access permissions.
+        \item Capacity reserved for demand connected through distribution
+        networks.
+        \item Capacity associated with storage where applicable.
+        \item Capacity-sharing zones between different substations.
+        \item Information on dedicated positions for demand.
+        \item Nodes subject to specific access-capacity conditions or
+        allocation procedures.
+    \end{itemize}
+
+    \item[\textbf{Spatial coverage:}]
+    Nodes of the Spanish electricity transmission network managed by
+    Red Eléctrica. The datasets provide node-level information and are
+    therefore considerably more spatially detailed than national or
+    regional aggregated electricity-system statistics.
+
+    \item[\textbf{Temporal coverage and resolution:}]
+    Current access-capacity information rather than historical electrical
+    operating time series. The published access capacities are periodically
+    updated by Red Eléctrica. At the time of this assessment, the available
+    demand and generation capacity datasets are updated monthly.
+
+    \item[\textbf{Data format:}]
+    Access-capacity results are published in machine-readable and
+    human-readable formats, including CSV, XLSX and PDF. Additional
+    documentation describing the calculation criteria and interpretation
+    of the published fields is also available.
+
+    \item[\textbf{Access method:}]
+    Direct download from the Red Eléctrica access-and-connection website.
+    CSV and XLSX files can be processed automatically and linked with the
+    corresponding transmission-network nodes of the EAGLE model.
+
+    \item[\textbf{Processing required:}]
+    Download and parsing of the published files, identification of the
+    corresponding transmission-network nodes, normalisation of node names
+    and voltage levels, and geographical/electrical matching with the buses
+    of the EAGLE network model. Particular attention should be given to the
+    definitions of available, occupied and reserved access capacity.
+
+    \item[\textbf{Main limitations:}] \hfill
+    \begin{itemize}
+        \item Access capacity is not equivalent to the thermal rating of
+        an individual transmission line.
+
+        \item Published capacity represents the result of an access-capacity
+        assessment considering several network criteria and should not be
+        interpreted as a simple physical line limit.
+
+        \item Available capacity values at different nodes should not
+        automatically be assumed to be simultaneously available or directly
+        additive.
+
+        \item The published information does not constitute a complete
+        electrical transmission-network model.
+
+        \item Detailed line impedance parameters required for independent
+        power-flow calculations are not provided through this dataset.
+
+        \item Published values have an informative character and do not
+        replace the specific access study performed for an individual
+        connection request.
+    \end{itemize}
+
+    \item[\textbf{Application in EAGLE:}]
+    This dataset is particularly relevant for EAGLE because the project
+    aims to evaluate the capability of the electricity network to accommodate
+    new large electricity consumers such as data centres. The official
+    demand access capacity published for transmission-network nodes can be
+    geographically and electrically matched with the corresponding buses
+    of the EAGLE model.
+
+    It can therefore be used both as a direct grid-availability indicator
+    for SiteOptimizer and as an official reference for validating the nodal
+    hosting-capacity indicators calculated independently using the EAGLE
+    electrical-network model.
+
+\end{description}
+
+
+% ============================================================
+% ENTSO-E
+% ============================================================
+
+\subsection{ENTSO-E -- Transparency Platform and Grid Data}
+
+\begin{description}
+
+    \item[\textbf{Source:}]
+    European Network of Transmission System Operators for Electricity
+    (ENTSO-E).
+
+    \item[\textbf{Access:}] \hfill
+    \begin{itemize}
+
+        \item ENTSO-E Transparency Platform:
+        \url{https://transparency.entsoe.eu/}
+
+        \item Transparency Platform information:
+        \url{https://www.entsoe.eu/data/transparency-platform/}
+
+        \item ENTSO-E statistics and grid datasets:
+        \url{https://www.entsoe.eu/publications/statistics-and-data/}
+
+        \item CIM / CGMES grid-model information:
+        \url{https://www.entsoe.eu/data/cim/cim-for-grid-models-exchange/}
+
+    \end{itemize}
+
+    \item[\textbf{Description:}]
+    ENTSO-E provides harmonised European electricity-system information
+    through several platforms and datasets. The Transparency Platform
+    publishes operational and market-related information supplied by
+    European transmission system operators, while additional ENTSO-E
+    resources provide transmission-network datasets and standardised
+    Common Information Model (CIM) / Common Grid Model Exchange
+    Specification (CGMES) information.
+
+    \item[\textbf{Relevant data:}] \hfill
+    \begin{itemize}
+        \item Actual electricity load.
+        \item Day-ahead and longer-term load forecasts.
+        \item Actual generation.
+        \item Generation by production type.
+        \item Installed generation capacity.
+        \item Wind and solar generation forecasts.
+        \item Cross-border electricity flows.
+        \item Transmission information.
+        \item Transmission and generation outages.
+        \item Balancing information.
+        \item European bidding-zone and system-level information.
+        \item European transmission-grid models for specific studies,
+        subject to dataset-specific access conditions.
+        \item CIM / CGMES specifications and reference information for
+        exchanging detailed transmission-network models.
+    \end{itemize}
+
+    \item[\textbf{Spatial coverage:}]
+    European electricity system covering the ENTSO-E area, including
+    Spain and its electrical interconnections with neighbouring systems.
+    The spatial resolution depends strongly on the specific dataset:
+    Transparency Platform information is commonly provided at bidding-zone
+    or system level, whereas dedicated grid-model datasets can contain
+    considerably more detailed transmission-network information.
+
+    \item[\textbf{Temporal coverage and resolution:}]
+    Depends on the dataset. The Transparency Platform provides historical,
+    current and forecast electricity-system information with resolutions
+    appropriate to the corresponding load, generation, transmission,
+    balancing or outage dataset.
+
+    \item[\textbf{Data format:}]
+    Transparency Platform information can be downloaded in machine-readable
+    formats including XML, CSV and XLSX depending on the access method and
+    dataset. Detailed grid models are increasingly exchanged using CIM /
+    CGMES-based representations.
+
+    \item[\textbf{Access method:}]
+    Data can be consulted and downloaded through the ENTSO-E Transparency
+    Platform. Programmatic access is available through the ENTSO-E
+    Transparency Platform REST API for supported datasets.
+
+    Detailed grid-model datasets have different access conditions.
+    Some datasets are available to universities, companies and other
+    institutions upon request, while access to more advanced network
+    datasets may require additional agreements or a Non-Disclosure
+    Agreement.
+
+    \item[\textbf{Processing required:}]
+    Selection of the relevant Spanish bidding zone or network dataset,
+    automated data retrieval where appropriate, parsing of the corresponding
+    XML/CSV/XLSX or CGMES representation, temporal harmonisation and
+    conversion into the internal data structures used by the EAGLE
+    electrical model.
+
+    \item[\textbf{Main limitations:}] \hfill
+    \begin{itemize}
+        \item Transparency Platform data should not be interpreted as a
+        directly downloadable complete electrical model of the Spanish
+        transmission network.
+
+        \item Much of the operational information is aggregated at
+        bidding-zone or system level rather than individual electrical
+        nodes.
+
+        \item Detailed European grid datasets have dataset-specific access
+        conditions and are not necessarily fully open for unrestricted
+        download.
+
+        \item Access to some advanced network datasets may require a formal
+        request and a Non-Disclosure Agreement.
+
+        \item The spatial and temporal resolution varies considerably
+        between datasets.
+
+        \item CGMES models require specialised processing before they can
+        be directly used in the selected EAGLE simulation framework.
+    \end{itemize}
+
+    \item[\textbf{Application in EAGLE:}]
+    ENTSO-E can provide an independent European reference for validating
+    Spanish demand, generation, renewable production and cross-border
+    electricity exchanges. This is particularly useful for validating the
+    boundary conditions of the Spanish EAGLE model and its electrical
+    interconnections with neighbouring countries.
+
+    ENTSO-E is also relevant as a potential source of more detailed
+    transmission-network models in CIM/CGMES format if suitable datasets
+    can be obtained. Such models could be compared with the reconstructed
+    PyPSA-Eur Spanish network and used to validate or improve its topology
+    and electrical parameters.
+
+\end{description}

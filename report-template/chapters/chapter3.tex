@@ -1,0 +1,256 @@
+\chapter{Power Grid Reconstruction Methodologies}
+
+\section{Xiong et al. -- OSM/PyPSA}
+
+\begin{description}
+
+    \item[\textbf{Reference:}]
+    Xiong et al., ``Modelling the high-voltage grid using open data for
+    Europe and beyond''.
+
+    \item[\textbf{Objective:}]
+    Develop an open and reproducible methodology for constructing a
+    topologically connected and simulation-ready representation of the
+    European high-voltage transmission grid using primarily OpenStreetMap
+    data. The methodology is designed to overcome the lack of openly
+    available detailed transmission-system models and is integrated into
+    the PyPSA-Eur workflow.
+
+    \item[\textbf{Input data:}] \hfill
+    \begin{itemize}
+        \item OpenStreetMap AC transmission lines and cables.
+        \item OpenStreetMap substations.
+        \item OpenStreetMap HVDC connections.
+        \item Geographical coordinates and geometries.
+        \item Voltage levels.
+        \item Number of circuits and cables when available.
+        \item Line frequency information.
+        \item Standard electrical line types from power-system modelling
+        libraries.
+    \end{itemize}
+
+    \item[\textbf{Methodology:}] \hfill
+    \begin{itemize}
+        \item Retrieval of power-system infrastructure from OpenStreetMap
+        using the Overpass API.
+        \item Extraction of AC lines, cables, substations and HVDC
+        infrastructure.
+        \item Cleaning and normalisation of incomplete or inconsistent OSM
+        attributes.
+        \item Selection of high-voltage substations and transmission
+        infrastructure.
+        \item Identification of line endpoints and conversion of geographical
+        infrastructure into network buses and branches.
+        \item Detection of transmission lines passing through substations and
+        splitting of lines where necessary.
+        \item Spatial clustering of nearby buses belonging to the same
+        substation.
+        \item Connection of different voltage levels within substations using
+        transformers.
+        \item Reconstruction of a topologically connected transmission
+        network.
+        \item Separate processing and integration of HVDC connections.
+        \item Assignment of standard electrical line types according to
+        voltage and available OSM characteristics.
+        \item Estimation of missing electrical parameters and transmission
+        capacities from standard line types, line length and circuit
+        information.
+        \item Conversion of the resulting network into a representation
+        directly usable by PyPSA and PyPSA-Eur.
+    \end{itemize}
+
+    \item[\textbf{Inferred / generated information:}] \hfill
+    \begin{itemize}
+        \item Network buses.
+        \item Connected AC transmission lines and cables.
+        \item HVDC links.
+        \item Transformers between voltage levels.
+        \item Connected high-voltage network topology.
+        \item Estimated resistance and reactance.
+        \item Estimated transmission capacities.
+        \item Electrical connections not explicitly represented in the
+        original geographical data.
+        \item Simulation-ready PyPSA network representation.
+    \end{itemize}
+
+    \item[\textbf{Output:}]
+    An open European high-voltage transmission network containing buses,
+    AC lines and cables, HVDC links and transformers. The processed network
+    can be exported as tabular datasets such as CSV files and used directly
+    within the PyPSA/PyPSA-Eur modelling ecosystem.
+
+    \item[\textbf{Validation:}]
+    The reconstructed network is compared with ENTSO-E transmission-network
+    statistics and other available official data. The study reports strong
+    agreement in total transmission-route and circuit lengths across European
+    countries. Electrical line parameters are additionally compared with an
+    official German transmission-system model, and the reconstructed network
+    is tested in a full PyPSA-Eur optimisation covering 8760 hours. The study
+    also investigates discrepancies in Spain and compares the reconstructed
+    topology with official Spanish geographical information.
+
+    \item[\textbf{Main assumptions:}] \hfill
+    \begin{itemize}
+        \item Missing circuit information may be completed using predefined
+        assumptions.
+        \item Lines are assigned standard electrical types according to
+        voltage and available characteristics.
+        \item Electrical parameters such as resistance and reactance are
+        derived from standard line types when official parameters are not
+        available.
+        \item Transmission capacities are estimated from the assigned
+        technical characteristics rather than obtained directly from the TSO.
+        \item Nearby buses can be clustered when they are considered to
+        represent the same physical substation.
+        \item Transformers can be synthetically introduced when buses at
+        different voltage levels belong to the same substation.
+    \end{itemize}
+
+    \item[\textbf{Main limitations:}] \hfill
+    \begin{itemize}
+        \item The reconstructed grid is not an exact representation of the
+        official transmission network operated by each TSO.
+        \item Results depend on the completeness and quality of OpenStreetMap
+        data.
+        \item Some electrical parameters are inferred from standard equipment
+        types rather than obtained from official network data.
+        \item Transmission capacities are estimates and should not
+        automatically be interpreted as official operational limits.
+        \item Some transformers are synthetic because sufficiently complete
+        transformer information is not available from OSM.
+        \item The methodology mainly focuses on high-voltage transmission
+        infrastructure of 200~kV and above.
+    \end{itemize}
+
+    \item[\textbf{Application in EAGLE:}]
+    This methodology is particularly relevant for constructing the base
+    electrical topology of the EAGLE Spanish transmission-network model.
+    Its workflow can be used to transform raw OpenStreetMap geographical
+    information into connected buses, transmission lines, transformers and
+    HVDC links. The proposed use of standard line types provides a practical
+    method for estimating missing resistance, reactance and transmission
+    capacities when official values are unavailable. In addition, the
+    resulting network is directly compatible with PyPSA/PyPSA-Eur, making
+    the methodology especially suitable if PyPSA is selected as one of the
+    EAGLE simulation and optimisation frameworks.
+
+\end{description}
+
+
+\section{Rivera et al. -- OSM/Transnet}
+
+\begin{description}
+
+    \item[\textbf{Reference:}]
+    Rivera et al., ``Automatic Generation of Real Power Transmission Grid
+    Models From Crowdsourced Data'', IEEE Transactions on Smart Grid, 2019.
+
+    \item[\textbf{Objective:}]
+    Automatically reconstruct transmission grid models from incomplete and
+    unstructured crowdsourced OpenStreetMap (OSM) data. The methodology aims
+    to infer electrical connections between power lines, substations and
+    generators and transform the resulting topology into a simulation-ready
+    electrical network model.
+
+    \item[\textbf{Input data:}] \hfill
+    \begin{itemize}
+        \item OpenStreetMap power lines.
+        \item Substations.
+        \item Power plants and generators.
+        \item Geographical coordinates and geometries.
+        \item Voltage levels and other available OSM attributes.
+        \item Population data for load estimation.
+        \item Average electricity consumption data for load estimation.
+    \end{itemize}
+
+    \item[\textbf{Methodology:}] \hfill
+    \begin{itemize}
+        \item Extraction of power-related objects from OpenStreetMap.
+        \item Identification of relevant transmission voltage levels.
+        \item Filtering of transmission lines and possible network endpoints
+        for each voltage level.
+        \item Spatial identification of intersections between power lines,
+        substations, power plants and generators.
+        \item Recursive traversal of connected lines to identify the endpoints
+        of electrical circuits.
+        \item Automatic inference of power circuit relations that are not
+        explicitly defined in OpenStreetMap.
+        \item Treatment of T-junctions by dividing them into individual
+        electrical relations.
+        \item Construction of a connected transmission network topology.
+        \item Estimation of missing electrical parameters.
+        \item Estimation of nodal loads using geographical population
+        information and electricity consumption.
+        \item Conversion of the reconstructed network into Common Information
+        Model (CIM).
+        \item Conversion of CIM models into MATLAB/Simulink models for
+        power-flow simulation.
+    \end{itemize}
+
+    \item[\textbf{Inferred / generated information:}] \hfill
+    \begin{itemize}
+        \item Connected transmission network topology.
+        \item Electrical circuit relations between network elements.
+        \item Connections between lines, substations and generators.
+        \item Estimated line resistance and reactance.
+        \item Estimated nodal loads.
+        \item CIM representation of the reconstructed network.
+        \item Simulation-ready MATLAB/Simulink network model.
+    \end{itemize}
+
+    \item[\textbf{Output:}]
+    Reconstructed transmission network models that can be stored in JSON
+    and CSV formats and subsequently converted to CIM and MATLAB/Simulink
+    representations suitable for power-flow simulations.
+
+    \item[\textbf{Validation:}]
+    The methodology was evaluated for 14 countries by comparing the
+    automatically inferred grid with manually defined OSM circuit relations
+    and official transmission-network statistics. The topology-inference
+    algorithm achieved high recall when compared with manually defined OSM
+    relations. For Spain, the reconstructed 220--400~kV network represented
+    approximately 63\% of the officially reported transmission-line length
+    using the OSM data considered in the study.
+
+    \item[\textbf{Main assumptions:}] \hfill
+    \begin{itemize}
+        \item Only transmission voltage levels with sufficient representation
+        in OSM are considered.
+        \item Missing conductor characteristics are inferred from technical
+        assumptions associated with voltage levels.
+        \item Line resistance and reactance are approximated from line length
+        and assumed conductor characteristics.
+        \item Electricity demand is geographically distributed using
+        population information and average electricity consumption.
+        \item The network is assumed to be a balanced three-phase system for
+        the demonstrated power-flow simulations.
+    \end{itemize}
+
+    \item[\textbf{Main limitations:}] \hfill
+    \begin{itemize}
+        \item The quality of the reconstructed network depends strongly on
+        the completeness and accuracy of OpenStreetMap.
+        \item The Spanish evaluation is based on old OSM data and should not
+        be interpreted as a current representation of the Spanish grid.
+        \item The reported 63\% value for Spain is primarily a comparison of
+        transmission-line length and does not represent 63\% accuracy of all
+        electrical parameters or network topology.
+        \item Resistance and reactance are rough estimates rather than
+        official transmission-system parameters.
+        \item Nodal loads are estimated from population data rather than
+        obtained from actual electrical measurements.
+        \item Intentional network loops can be ignored by the proposed
+        inference algorithm to reduce computational complexity.
+    \end{itemize}
+
+    \item[\textbf{Application in EAGLE:}]
+    The main value for EAGLE is methodological rather than as a direct source
+    of Spanish transmission-grid data. The proposed spatial connectivity
+    inference can be adapted to reconstruct electrical relations when
+    OpenStreetMap data do not explicitly define them. Its approaches for
+    estimating missing network parameters and nodal loads also provide
+    possible strategies for completing incomplete EAGLE datasets. The CIM
+    conversion demonstrates an additional method for transforming the
+    reconstructed topology into a standard electrical network representation.
+
+\end{description}

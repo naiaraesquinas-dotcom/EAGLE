@@ -1,2 +1,906 @@
-\chapter{Software opensource}
-\label{chap:intro}
+\chapter{Open-Source Softwares}
+\label{chap:software-data}
+
+% ============================================================
+% SOFTWARE OVERVIEW
+% ============================================================
+
+\section{Software Overview}
+
+\begin{table}[htbp]
+\centering
+\caption{Comparison of open-source software for EAGLE requirements}
+\label{tab:eagle_software}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{3pt}
+
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{
+>{\raggedright\arraybackslash}p{4.2cm}
+>{\raggedright\arraybackslash}p{2.6cm}
+>{\raggedright\arraybackslash}p{2.6cm}
+>{\raggedright\arraybackslash}p{2.6cm}
+>{\raggedright\arraybackslash}p{2.6cm}
+>{\raggedright\arraybackslash}p{2.6cm}}
+\hline
+
+\textbf{EAGLE Requirement} &
+\textbf{PyPSA} &
+\textbf{pandapower} &
+\textbf{OpenDSS} &
+\textbf{MATPOWER} &
+\textbf{VeraGrid} \\
+
+\hline
+
+% ============================================================
+% GENERAL
+% ============================================================
+
+\textbf{Open-source} &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes \\
+
+\textbf{Python-native workflow} &
+\cellcolor{green!25} Native &
+\cellcolor{green!25} Native &
+\cellcolor{orange!25} Via interfaces &
+\cellcolor{red!25} MATLAB / Octave &
+\cellcolor{green!25} Native \\
+
+\textbf{Programmatic automation} &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes \\
+
+
+% ============================================================
+% NETWORK MODELLING
+% ============================================================
+
+\textbf{HV transmission modelling} &
+\cellcolor{green!25} Strong &
+\cellcolor{green!25} Strong &
+\cellcolor{orange!25} Secondary focus &
+\cellcolor{green!25} Strong &
+\cellcolor{green!25} Strong \\
+
+\textbf{MV / distribution modelling} &
+\cellcolor{orange!25} Possible &
+\cellcolor{green!25} Strong &
+\cellcolor{green!25} Strong &
+\cellcolor{orange!25} Possible &
+\cellcolor{green!25} Strong \\
+
+\textbf{HVDC modelling} &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{orange!25} Limited / indirect &
+\cellcolor{orange!25} Limited &
+\cellcolor{green!25} Yes \\
+
+
+% ============================================================
+% ELECTRICAL ANALYSIS
+% ============================================================
+
+\textbf{Non-linear AC power flow} &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes \\
+
+\textbf{DC / linear power flow} &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{orange!25} Limited &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes \\
+
+\textbf{Line loading / thermal limits} &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes \\
+
+\textbf{Voltage constraints} &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes \\
+
+\textbf{Time-series analysis} &
+\cellcolor{green!25} Strong &
+\cellcolor{green!25} Strong &
+\cellcolor{green!25} Strong &
+\cellcolor{orange!25} MOST / additional workflow &
+\cellcolor{green!25} Yes \\
+
+\textbf{Contingency / N-1 analysis} &
+\cellcolor{green!25} Yes &
+\cellcolor{green!25} Yes &
+\cellcolor{orange!25} Possible &
+\cellcolor{orange!25} Additional workflow &
+\cellcolor{green!25} Yes \\
+
+\textbf{PTDF / LODF analysis} &
+\cellcolor{orange!25} Possible &
+\cellcolor{orange!25} Possible &
+\cellcolor{red!25} Not core &
+\cellcolor{orange!25} Possible &
+\cellcolor{green!25} Native \\
+
+
+% ============================================================
+% OPTIMISATION / CAPACITY
+% ============================================================
+
+\textbf{Optimal Power Flow (OPF)} &
+\cellcolor{green!25} Strong &
+\cellcolor{green!25} Yes &
+\cellcolor{orange!25} Limited &
+\cellcolor{green!25} Strong &
+\cellcolor{green!25} Yes \\
+
+\textbf{Long-term planning / expansion} &
+\cellcolor{green!25} Strong &
+\cellcolor{orange!25} Limited &
+\cellcolor{orange!25} Limited &
+\cellcolor{orange!25} Additional tools &
+\cellcolor{orange!25} Possible \\
+
+\textbf{Hosting-capacity studies} &
+\cellcolor{orange!25} Custom methodology &
+\cellcolor{orange!25} Custom methodology &
+\cellcolor{green!25} Strong for distribution &
+\cellcolor{orange!25} Custom methodology &
+\cellcolor{green!25} Nodal functionality \\
+
+\textbf{Large-scale network studies} &
+\cellcolor{green!25} Strong &
+\cellcolor{green!25} Yes &
+\cellcolor{orange!25} Distribution-oriented &
+\cellcolor{green!25} Strong &
+\cellcolor{green!25} Yes \\
+
+
+% ============================================================
+% DATA / INTEROPERABILITY
+% ============================================================
+
+\textbf{PyPSA-Eur compatibility} &
+\cellcolor{green!25} Native &
+\cellcolor{orange!25} Conversion required &
+\cellcolor{orange!25} Conversion required &
+\cellcolor{orange!25} Conversion required &
+\cellcolor{green!25} PyPSA import \\
+
+\textbf{CIM / CGMES interoperability} &
+\cellcolor{orange!25} External workflow &
+\cellcolor{orange!25} Partial / conversion &
+\cellcolor{orange!25} External workflow &
+\cellcolor{orange!25} External workflow &
+\cellcolor{green!25} Supported \\
+
+
+% ============================================================
+% GIS / EAGLE INTEGRATION
+% ============================================================
+
+\textbf{Geographical network data} &
+\cellcolor{green!25} Coordinates &
+\cellcolor{green!25} Geodata &
+\cellcolor{orange!25} Basic coordinates &
+\cellcolor{red!25} Not GIS-oriented &
+\cellcolor{green!25} Geographic data \\
+
+\textbf{GIS / map visualisation} &
+\cellcolor{orange!25} Basic / external &
+\cellcolor{green!25} Yes &
+\cellcolor{orange!25} External &
+\cellcolor{red!25} No &
+\cellcolor{green!25} Yes \\
+
+\textbf{Python GIS / SiteOptimizer integration} &
+\cellcolor{green!25} Direct &
+\cellcolor{green!25} Direct &
+\cellcolor{orange!25} Via Python interface &
+\cellcolor{red!25} Additional integration &
+\cellcolor{green!25} Direct \\
+
+\hline
+
+\textbf{Main strength for EAGLE} &
+\cellcolor{green!25}\textbf{Large-scale planning and optimisation} &
+\cellcolor{green!25}\textbf{Detailed electrical analysis} &
+\cellcolor{green!25}\textbf{Distribution and hosting capacity} &
+\cellcolor{green!25}\textbf{Power flow and OPF reference} &
+\cellcolor{green!25}\textbf{Transmission analysis and interoperability} \\
+
+\hline
+
+\end{tabular}
+\end{adjustbox}
+
+\vspace{0.2cm}
+
+\begin{minipage}{0.95\textwidth}
+\footnotesize
+
+Green indicates that the capability is directly supported and well aligned
+with the corresponding EAGLE requirement. Orange indicates that the
+capability is available with limitations, through additional modules or
+interfaces, or is not a primary focus of the software. Red indicates that
+the capability is not natively supported or is poorly aligned with the
+requirement.
+
+Hosting capacity is not necessarily a single software function. In several
+frameworks it must be implemented as a methodology combining power-flow or
+optimal-power-flow calculations with voltage, thermal and operational
+constraints.
+
+\end{minipage}
+
+\end{table}
+
+
+
+\section{Software Description}
+
+% ============================================================
+% PyPSA
+% ============================================================
+
+\subsection{PyPSA}
+
+\begin{description}
+
+    \item[\textbf{Developer / organisation:}]
+    PyPSA community. Development and maintenance are currently led by the
+    Department of Digital Transformation in Energy Systems at the Technical
+    University of Berlin.
+
+    \item[\textbf{Access:}] \hfill
+    \begin{itemize}
+        \item Official website:
+        \url{https://pypsa.org/}
+
+        \item Documentation:
+        \url{https://docs.pypsa.org/}
+
+        \item Source repository:
+        \url{https://github.com/PyPSA/PyPSA}
+    \end{itemize}
+
+    \item[\textbf{Description:}]
+    PyPSA (Python for Power System Analysis) is an open-source Python
+    framework for modelling, simulating and optimising electrical and
+    multi-energy systems. It is particularly oriented towards large-scale
+    transmission systems, renewable integration, storage, sector coupling
+    and operational and investment optimisation over long time series.
+
+    \item[\textbf{Main capabilities:}] \hfill
+    \begin{itemize}
+        \item Static non-linear AC power flow.
+        \item Linearised power flow.
+        \item Economic dispatch.
+        \item Linear optimal power flow.
+        \item Security-constrained optimal power flow.
+        \item Unit commitment.
+        \item Generation and storage capacity optimisation.
+        \item Transmission expansion optimisation.
+        \item Multi-period and multi-investment-period optimisation.
+        \item Renewable generation modelling.
+        \item Storage and hydro modelling.
+        \item Sector coupling and multi-carrier energy systems.
+        \item Network and result visualisation.
+    \end{itemize}
+
+    \item[\textbf{Network components:}] \hfill
+    \begin{itemize}
+        \item Buses.
+        \item AC transmission lines.
+        \item Transformers.
+        \item Controllable links and HVDC connections.
+        \item Generators.
+        \item Loads.
+        \item Storage units.
+        \item Energy stores.
+        \item Shunt impedances.
+        \item Multi-carrier conversion technologies.
+    \end{itemize}
+
+    \item[\textbf{Power-system analysis:}] \hfill
+    \begin{itemize}
+        \item Full non-linear AC power flow using Newton--Raphson.
+        \item Linearised AC/DC network analysis.
+        \item Network-constrained economic dispatch.
+        \item Linear optimal power flow.
+        \item Security-constrained linear optimal power flow considering
+        network contingencies.
+        \item Operational optimisation over multiple time steps.
+        \item Capacity-expansion and transmission-expansion optimisation.
+    \end{itemize}
+
+    \item[\textbf{Data handling and automation:}]
+    PyPSA is implemented in Python and stores network components and
+    time-dependent information in structures closely integrated with pandas.
+    This facilitates automated workflows, modification of network parameters,
+    batch simulations, processing of long time series and integration with
+    external Python data-analysis libraries.
+
+    \item[\textbf{GIS / spatial capabilities:}]
+    Network buses can contain geographical coordinates and PyPSA provides
+    network plotting and exploration functionality. Its Python-based
+    architecture facilitates integration with GeoPandas and other GIS
+    libraries. The PyPSA ecosystem also includes PyPSA-Eur, which provides
+    geographically referenced European energy-system models.
+
+    \item[\textbf{Input / output formats:}]
+    PyPSA networks can be imported and exported using machine-readable
+    formats including NetCDF, CSV and HDF5-based workflows depending on the
+    functionality used. Network and result tables can also be directly
+    accessed and processed through Python and pandas.
+
+    \item[\textbf{Main advantages for EAGLE:}] \hfill
+    \begin{itemize}
+        \item Native Python environment suitable for automated EAGLE
+        workflows.
+        \item Direct compatibility with PyPSA-Eur, currently considered as
+        a candidate source for the initial Spanish transmission-network model.
+        \item Designed for large transmission networks and long time series.
+        \item Strong support for renewable generation and storage.
+        \item Network constraints can be included directly in optimisation.
+        \item Suitable for studying future electricity-system scenarios.
+        \item Supports both operational and infrastructure-investment
+        optimisation.
+        \item Results can be processed programmatically for integration with
+        the spatial SiteOptimizer workflow.
+    \end{itemize}
+
+    \item[\textbf{Main limitations for EAGLE:}] \hfill
+    \begin{itemize}
+        \item Many optimisation functions rely on linearised network
+        formulations rather than full non-linear AC equations.
+        \item It is primarily oriented towards system-level and planning
+        studies rather than highly detailed equipment-level electrical
+        analysis.
+        \item Detailed short-circuit and protection studies are not its
+        primary purpose.
+        \item Additional validation may be required when using reconstructed
+        or estimated network parameters from PyPSA-Eur.
+    \end{itemize}
+
+    \item[\textbf{Potential application in EAGLE:}]
+    PyPSA could serve as the main simulation and optimisation framework of
+    the EAGLE electrical-network model. A Spanish network extracted from
+    PyPSA-Eur could be enriched with official Spanish data and used to
+    calculate network flows, line loading, congestion and available network
+    capacity under different demand and generation scenarios. Its
+    optimisation capabilities are particularly relevant for evaluating
+    future data-centre demand, renewable integration and possible network
+    reinforcement scenarios.
+
+\end{description}
+
+
+% ============================================================
+% pandapower
+% ============================================================
+
+\subsection{pandapower}
+
+\begin{description}
+
+    \item[\textbf{Developer / organisation:}]
+    Joint development involving the Energy Management and Power System
+    Operation research group at the University of Kassel and the Grid
+    Planning and Grid Operation Division at Fraunhofer IEE.
+
+    \item[\textbf{Access:}] \hfill
+    \begin{itemize}
+        \item Official website:
+        \url{https://www.pandapower.org/}
+
+        \item Documentation:
+        \url{https://pandapower.readthedocs.io/}
+
+        \item Source repository:
+        \url{https://github.com/e2nIEE/pandapower}
+    \end{itemize}
+
+    \item[\textbf{Description:}]
+    pandapower is an open-source Python framework for modelling, analysis
+    and optimisation of electrical power systems. It combines detailed
+    element-based electrical models with a pandas-based data structure and
+    is designed for highly automated static and quasi-static power-system
+    studies.
+
+    \item[\textbf{Main capabilities:}] \hfill
+    \begin{itemize}
+        \item AC power flow.
+        \item DC power flow.
+        \item Optimal power flow.
+        \item State estimation.
+        \item Short-circuit calculation.
+        \item Topological network analysis.
+        \item Time-series simulations.
+        \item Controller-based simulations.
+        \item Network plotting and geographical visualisation.
+        \item Conversion from and to several external network formats.
+    \end{itemize}
+
+    \item[\textbf{Network components:}] \hfill
+    \begin{itemize}
+        \item Buses.
+        \item AC lines.
+        \item DC lines.
+        \item Two-winding and three-winding transformers.
+        \item Loads.
+        \item Generators.
+        \item Static generators.
+        \item External grids.
+        \item Switches.
+        \item Shunts.
+        \item Storage systems.
+        \item Impedances and other electrical elements.
+    \end{itemize}
+
+    \item[\textbf{Power-system analysis:}] \hfill
+    \begin{itemize}
+        \item Newton--Raphson AC power flow.
+        \item DC power flow.
+        \item Optimal power flow.
+        \item State estimation and bad-data analysis.
+        \item IEC 60909 short-circuit calculations.
+        \item Network topology analysis using graph-based methods.
+        \item Quasi-static time-series simulation.
+    \end{itemize}
+
+    \item[\textbf{Data handling and automation:}]
+    Network elements and simulation results are stored in pandas DataFrames,
+    such as buses, lines, transformers, loads and their corresponding result
+    tables. This structure is particularly convenient for automated data
+    processing, filtering, modification, validation and integration with
+    other Python libraries.
+
+    \item[\textbf{GIS / spatial capabilities:}]
+    pandapower supports geographical information associated with network
+    elements and provides plotting functionality. Its Python environment
+    also facilitates integration with external GIS libraries for more
+    advanced spatial analysis.
+
+    \item[\textbf{Input / output formats:}]
+    Networks can be stored and exchanged through several formats and
+    converters, including JSON, Excel and MATPOWER/PYPOWER-compatible
+    representations. Network tables can also be directly manipulated and
+    exported using pandas.
+
+    \item[\textbf{Main advantages for EAGLE:}] \hfill
+    \begin{itemize}
+        \item Native Python integration.
+        \item Detailed and validated electrical component models.
+        \item Convenient pandas-based representation of network elements
+        and results.
+        \item Detailed calculation of bus voltages, branch flows, loading
+        and electrical losses.
+        \item State-estimation and short-circuit functionality if required
+        in later EAGLE developments.
+        \item NetworkX-based topology analysis can be useful for validating
+        reconstructed network connectivity.
+        \item Standard line and transformer libraries can help complete
+        missing electrical parameters.
+        \item Suitable for automated batch and time-series studies.
+    \end{itemize}
+
+    \item[\textbf{Main limitations for EAGLE:}] \hfill
+    \begin{itemize}
+        \item Long-term generation and transmission capacity-expansion
+        optimisation is not its main design focus.
+        \item Energy-system planning and sector coupling are less central
+        than in PyPSA.
+        \item Direct integration with PyPSA-Eur would require conversion of
+        the network representation.
+        \item For very large multi-period optimisation problems, a framework
+        specifically designed for energy-system optimisation may be more
+        convenient.
+    \end{itemize}
+
+    \item[\textbf{Potential application in EAGLE:}]
+    pandapower could be used as a detailed electrical-analysis and validation
+    framework for the EAGLE network. It is particularly suitable for checking
+    AC power-flow results, voltage limits, line loading, electrical losses
+    and network connectivity. It could therefore either serve as the main
+    electrical simulation engine or complement a PyPSA-based planning model
+    with more detailed electrical-network analyses.
+
+\end{description}
+
+
+% ============================================================
+% OpenDSS
+% ============================================================
+
+\subsection{OpenDSS}
+
+\begin{description}
+
+    \item[\textbf{Developer / organisation:}]
+    Electric Power Research Institute (EPRI).
+
+    \item[\textbf{Access:}] \hfill
+    \begin{itemize}
+        \item Official documentation:
+        \url{https://opendss.epri.com/}
+
+        \item Official downloads:
+        \url{https://sourceforge.net/projects/electricdss/}
+
+        \item Python interface ecosystem:
+        \url{https://dss-extensions.org/}
+
+        \item OpenDSSDirect.py:
+        \url{https://github.com/dss-extensions/OpenDSSDirect.py}
+    \end{itemize}
+
+    \item[\textbf{Description:}]
+    OpenDSS (Open Distribution System Simulator) is an open-source electrical
+    system simulation tool developed primarily for utility distribution
+    systems and distributed-energy-resource integration. It supports detailed
+    multi-phase network modelling and is particularly oriented towards
+    distribution planning, DER studies and quasi-static time-series
+    simulation.
+
+    \item[\textbf{Main capabilities:}] \hfill
+    \begin{itemize}
+        \item Multi-phase power-flow analysis.
+        \item Unbalanced distribution-network modelling.
+        \item Quasi-static time-series simulation.
+        \item Daily and yearly load-shape simulation.
+        \item Distributed-generation and DER analysis.
+        \item Voltage-regulation studies.
+        \item Harmonic analysis.
+        \item Fault and short-circuit studies.
+        \item Energy-metering and loss analysis.
+        \item Distribution planning studies.
+    \end{itemize}
+
+    \item[\textbf{Network components:}] \hfill
+    \begin{itemize}
+        \item Buses and nodes.
+        \item Multi-phase lines and cables.
+        \item Transformers.
+        \item Loads.
+        \item Generators.
+        \item PV systems.
+        \item Storage systems.
+        \item Capacitors.
+        \item Reactors.
+        \item Voltage regulators.
+        \item Protection and switching devices.
+    \end{itemize}
+
+    \item[\textbf{Power-system analysis:}] \hfill
+    \begin{itemize}
+        \item Multi-phase AC circuit analysis.
+        \item Unbalanced power flow.
+        \item Long quasi-static time-series simulations.
+        \item Voltage and overload analysis.
+        \item Harmonic studies.
+        \item Fault and short-circuit calculations.
+        \item Detailed analysis of distributed generation and storage.
+    \end{itemize}
+
+    \item[\textbf{Data handling and automation:}]
+    OpenDSS uses its own text-based scripting language and can be automated
+    through external programming interfaces. Python integration is possible
+    through projects such as DSS-Python and OpenDSSDirect.py. This enables
+    automated simulations and integration with the wider Python ecosystem,
+    although these interfaces should be distinguished from the official
+    EPRI implementation.
+
+    \item[\textbf{GIS / spatial capabilities:}]
+    Geographical coordinates can be associated with buses and network
+    elements, but GIS-based transmission-system modelling is not the primary
+    focus of OpenDSS. Advanced spatial processing would normally be performed
+    using external tools.
+
+    \item[\textbf{Input / output formats:}]
+    The native OpenDSS model is based primarily on text-based DSS files and
+    commands. Simulation results can be exported for subsequent processing,
+    and Python interfaces can be used to retrieve results directly from the
+    simulation engine.
+
+    \item[\textbf{Main advantages for EAGLE:}] \hfill
+    \begin{itemize}
+        \item Mature framework for detailed electrical simulation.
+        \item Strong capabilities for time-series analysis.
+        \item Detailed modelling of distributed generation, storage and
+        voltage-control devices.
+        \item Particularly suitable if EAGLE is later extended towards
+        distribution-level hosting-capacity studies.
+        \item Python automation is possible through the DSS-Extensions
+        ecosystem.
+    \end{itemize}
+
+    \item[\textbf{Main limitations for EAGLE:}] \hfill
+    \begin{itemize}
+        \item Primarily designed for distribution and subtransmission
+        systems rather than large European transmission-system planning.
+        \item Large-scale transmission optimisation is not its main purpose.
+        \item Less directly compatible with the PyPSA-Eur data ecosystem.
+        \item Integration into a fully Python-native EAGLE workflow requires
+        an additional interface such as DSS-Python or OpenDSSDirect.py.
+        \item Its detailed unbalanced distribution capabilities may exceed
+        the requirements of the initial EAGLE transmission-network model.
+    \end{itemize}
+
+    \item[\textbf{Potential application in EAGLE:}]
+    OpenDSS would be particularly valuable if EAGLE is extended from the
+    high-voltage transmission system towards detailed distribution-network
+    hosting-capacity analysis. For the initial national transmission-level
+    model, its main strengths are less closely aligned with the current
+    EAGLE requirements than those of transmission-oriented Python
+    frameworks.
+
+\end{description}
+
+
+% ============================================================
+% MATPOWER
+% ============================================================
+
+\subsection{MATPOWER}
+
+\begin{description}
+
+    \item[\textbf{Developer / organisation:}]
+    MATPOWER project, originally developed at Cornell University and
+    maintained by the MATPOWER development community.
+
+    \item[\textbf{Access:}] \hfill
+    \begin{itemize}
+        \item Official website:
+        \url{https://matpower.org/}
+
+        \item Documentation:
+        \url{https://matpower.org/doc/}
+
+        \item Source repository:
+        \url{https://github.com/MATPOWER/matpower}
+    \end{itemize}
+
+    \item[\textbf{Description:}]
+    MATPOWER is a free and open-source package for steady-state electric
+    power-system simulation and optimisation in MATLAB and GNU Octave.
+    It is widely used in research and education and provides a compact
+    bus-branch representation for power-flow and optimal-power-flow studies.
+
+    \item[\textbf{Main capabilities:}] \hfill
+    \begin{itemize}
+        \item AC power flow.
+        \item DC power flow.
+        \item Continuation power flow.
+        \item AC optimal power flow.
+        \item DC optimal power flow.
+        \item Economic dispatch and market-related analyses.
+        \item Extensible mathematical optimisation framework.
+        \item Multi-period optimisation through MOST.
+        \item Large collection of benchmark network cases.
+    \end{itemize}
+
+    \item[\textbf{Network components:}] \hfill
+    \begin{itemize}
+        \item Buses.
+        \item Branches representing lines and transformers.
+        \item Generators.
+        \item Loads represented through bus demand.
+        \item Generator costs.
+        \item Additional components through extensions and the newer
+        MATPOWER architecture.
+    \end{itemize}
+
+    \item[\textbf{Power-system analysis:}] \hfill
+    \begin{itemize}
+        \item Newton-based AC power flow.
+        \item DC power flow.
+        \item Continuation power flow.
+        \item AC optimal power flow.
+        \item DC optimal power flow.
+        \item Multi-period scheduling and optimisation through MOST.
+    \end{itemize}
+
+    \item[\textbf{Data handling and automation:}]
+    MATPOWER uses MATLAB/Octave structures and M-files to represent electrical
+    networks. This provides a compact and highly reproducible representation
+    and makes automated studies straightforward within MATLAB or GNU Octave.
+    Integration with a Python-centred workflow, however, normally requires
+    conversion or an additional interface.
+
+    \item[\textbf{GIS / spatial capabilities:}]
+    MATPOWER is primarily an electrical and mathematical simulation framework
+    and does not provide a GIS-oriented network data model as a core feature.
+    Geographical processing would generally be performed externally.
+
+    \item[\textbf{Input / output formats:}]
+    The standard MATPOWER case format stores bus, generator, branch and cost
+    information in MATLAB structures. The format is widely supported by other
+    open-source power-system tools, making MATPOWER cases useful for network
+    interchange and benchmark studies.
+
+    \item[\textbf{Main advantages for EAGLE:}] \hfill
+    \begin{itemize}
+        \item Mature and extensively used power-flow and OPF framework.
+        \item Simple and transparent mathematical network representation.
+        \item Large collection of standard test systems.
+        \item Useful as an independent reference for validating EAGLE
+        power-flow or optimisation results.
+        \item MATPOWER case format is supported by several other
+        power-system tools.
+        \item GNU Octave provides a fully open-source execution alternative
+        to MATLAB.
+    \end{itemize}
+
+    \item[\textbf{Main limitations for EAGLE:}] \hfill
+    \begin{itemize}
+        \item Not Python-native.
+        \item Limited native GIS and spatial-analysis capabilities.
+        \item Less direct integration with the current PyPSA-Eur data
+        workflow.
+        \item The traditional bus-branch data model is less convenient than
+        element-based models when handling detailed equipment information.
+        \item Long-term energy-system and renewable-planning functionality
+        requires additional tools such as MOST or custom implementations.
+    \end{itemize}
+
+    \item[\textbf{Potential application in EAGLE:}]
+    MATPOWER could provide an independent reference implementation for
+    validating power-flow and optimal-power-flow calculations performed by
+    the main EAGLE framework. Its widespread case format may also be useful
+    for exchanging network models with other tools. However, adopting it as
+    the central EAGLE framework would require additional integration with
+    the Python and geospatial workflow.
+
+\end{description}
+
+
+% ============================================================
+% VeraGrid / GridCal
+% ============================================================
+
+\subsection{VeraGrid (formerly GridCal)}
+
+\begin{description}
+
+    \item[\textbf{Developer / organisation:}]
+    VeraGrid open-source project, led by Santiago Peñate Vera. VeraGrid is
+    the current continuation of the project previously known as GridCal.
+
+    \item[\textbf{Access:}] \hfill
+    \begin{itemize}
+        \item Documentation:
+        \url{https://veragrid.readthedocs.io/}
+
+        \item Source repository:
+        \url{https://github.com/SanPen/VeraGrid}
+
+        \item Python package:
+        \url{https://pypi.org/project/VeraGrid/}
+    \end{itemize}
+
+    \item[\textbf{Description:}]
+    VeraGrid is an open-source, cross-platform power-system planning and
+    simulation platform written in Python. It combines a graphical user
+    interface with a Python calculation engine and provides a broad range
+    of power-system analysis, optimisation and data-conversion capabilities.
+    It is the current continuation of GridCal.
+
+    \item[\textbf{Main capabilities:}] \hfill
+    \begin{itemize}
+        \item AC/DC multi-grid power flow.
+        \item Three-phase unbalanced power flow.
+        \item Linear optimal power flow.
+        \item PTDF and LODF linear analysis.
+        \item Net transfer capacity calculations.
+        \item Contingency analysis.
+        \item Stochastic power flow.
+        \item Short-circuit calculations.
+        \item Continuation power flow.
+        \item Time-series simulations.
+        \item Investment analysis.
+        \item RMS and EMT simulation capabilities.
+        \item Graphical network editing and visualisation.
+        \item Network model validation and repair tools.
+    \end{itemize}
+
+    \item[\textbf{Network components:}] \hfill
+    \begin{itemize}
+        \item Buses and substations.
+        \item AC transmission lines.
+        \item HVDC connections.
+        \item Transformers.
+        \item Loads.
+        \item Generators.
+        \item Batteries and storage elements.
+        \item Shunts.
+        \item Switches and other network devices.
+        \item Detailed line and equipment templates.
+    \end{itemize}
+
+    \item[\textbf{Power-system analysis:}] \hfill
+    \begin{itemize}
+        \item Non-linear AC/DC power flow.
+        \item Linearised network analysis.
+        \item Linear optimal power flow.
+        \item Contingency and N-1 analysis.
+        \item PTDF and LODF calculation.
+        \item Optimal net transfer capacity analysis.
+        \item Stochastic power flow.
+        \item Short-circuit and continuation power-flow analysis.
+        \item Time-series simulation for multiple study types.
+    \end{itemize}
+
+    \item[\textbf{Data handling and automation:}]
+    VeraGrid is implemented in Python and separates its calculation engine
+    from its graphical interface. The VeraGridEngine package can therefore
+    be used directly as a Python library for scripting, automated batch
+    calculations and integration into external applications. A server
+    package is also available for remote access to the calculation engine.
+
+    \item[\textbf{GIS / spatial capabilities:}]
+    VeraGrid includes network schematic and substation-line map
+    representations and can handle geographical information associated with
+    network assets. Its Python architecture also allows integration with
+    external geospatial-processing libraries.
+
+    \item[\textbf{Input / output formats:}]
+    VeraGrid supports a broad range of power-system formats, including
+    MATPOWER, PSS/E RAW/RAWX, CIM, CGMES, PyPSA, JSON and its native
+    VeraGrid formats. This makes it particularly useful for exchanging and
+    validating network models between different software ecosystems.
+
+    \item[\textbf{Main advantages for EAGLE:}] \hfill
+    \begin{itemize}
+        \item Native Python implementation.
+        \item Graphical interface in addition to programmatic access.
+        \item Broad range of transmission-system analysis functions.
+        \item Contingency, PTDF, LODF and transfer-capacity analyses are
+        directly relevant to transmission-network constraints.
+        \item Supports time-series simulations.
+        \item Can import PyPSA network models.
+        \item Strong interoperability through MATPOWER, CIM/CGMES, PSS/E
+        and other network formats.
+        \item Could provide an independent environment for visually
+        inspecting and validating the EAGLE network.
+    \end{itemize}
+
+    \item[\textbf{Main limitations for EAGLE:}] \hfill
+    \begin{itemize}
+        \item The current project has recently transitioned from the GridCal
+        name to VeraGrid, so older publications and documentation may use
+        different package and class names.
+        \item Its ecosystem and user community are smaller than those of
+        some more established frameworks.
+        \item Direct use of PyPSA-Eur requires an import/conversion step,
+        even though PyPSA models are supported.
+        \item Long-term European energy-system capacity-expansion workflows
+        are less directly aligned with the PyPSA-Eur ecosystem.
+    \end{itemize}
+
+    \item[\textbf{Potential application in EAGLE:}]
+    VeraGrid could be used as an alternative or complementary transmission
+    analysis framework for EAGLE. Its Python engine, graphical interface,
+    contingency-analysis capabilities and support for PyPSA, CGMES and
+    MATPOWER formats make it particularly interesting for inspecting and
+    independently validating the Spanish network model and for analysing
+    transmission constraints and transfer capacities.
+
+\end{description}

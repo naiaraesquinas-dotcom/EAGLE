@@ -1,0 +1,142 @@
+﻿%% FUENTES DE DATOS PARA EAGLE
+
+% Official CNMC dataset integrating monthly information from Spanish
+% transmission and distribution system operators on available grid access
+% capacity. Provides node/substation-level information for generation and
+% demand, including network operator, province, voltage level, available
+% capacity and free substation positions. Particularly useful for EAGLE to
+% introduce realistic spatial grid-connection constraints when allocating
+% new generation, demand or storage. Data are visualised through interactive
+% ArcGIS maps. Useful for grid capacity analysis, but insufficient to
+% reconstruct a complete electrical network model because detailed line
+% topology and electrical parameters (R, X, B, thermal limits, etc.) are
+% not provided.
+@misc{https:__www_cnmc_es_en_node_419770,
+  title = {La CNMC publica los mapas con la capacidad disponible en las redes eléctricas en España  | CNMC},
+  year = {2026},
+  url = {https://www.cnmc.es/en/node/419770}
+}
+
+
+% Official historical and operational data from the Spanish electricity system.
+% Provides demand, generation mix, installed capacity and other indicators with
+% temporal and geographical filtering. REST API returning JSON data, suitable
+% for automated processing in Python. Highly useful for building and validating
+% realistic EAGLE scenarios, although insufficient by itself for detailed
+% transmission-network topology and electrical parameters.
+@misc{https:__www_ree_es_es_datos_apidatos,
+  title = {API | Red Eléctrica},
+  author = {Redeia},
+  url = {https://www.ree.es/es/datos/apidatos}
+}
+
+% Presents an open and reproducible methodology for constructing a
+% topologically connected European high-voltage transmission grid
+% (>=200 kV) from OpenStreetMap data. The workflow retrieves substations,
+% AC lines/cables and HVDC links through the Overpass API, cleans and
+% connects the topology, and derives missing electrical parameters using
+% standard PyPSA/pandapower line types. The resulting dataset is available
+% as CSV and includes buses, AC lines, DC links and synthetic transformers.
+% Particularly relevant for EAGLE as a potential open source for Spanish
+% transmission-grid topology and as a methodology for constructing an
+% EAGLE-specific network dataset. Main limitation: several electrical
+% parameters and transformers are inferred rather than obtained from
+% official TSO data, so the network should be treated as an approximation
+% rather than an exact representation of the Spanish transmission system.
+@misc{18d96a57b26526115e6909ad1d524b9c,
+  title = {Modelling the high-voltage grid using open data for Europe and beyond},
+  author = {Bobby Xiong and Davide Fioriti and F. Neumann and Iegor Riepin and Tom Brown},
+  year = {2024},
+  journal = {Scientific Data},
+  url = {https://www.semanticscholar.org/paper/8a7044d33e7a2c64ea6ffcc2b6d5394cf326d0c8},
+  doi = {10.1038/s41597-025-04550-7}
+}
+
+
+% Proposes an automated methodology for generating real transmission grid
+% models from crowdsourced OpenStreetMap (OSM) data. The approach uses
+% spatial analysis to infer electrical connections between power lines,
+% substations and generators, transforming the resulting topology into
+% Common Information Model (CIM) and MATLAB/Simulink models suitable for
+% power-flow simulations. Missing parameters such as substation loads and
+% line resistance/reactance are estimated using external data and technical
+% assumptions. Particularly relevant for EAGLE as a methodological reference
+% for automatically reconstructing and completing transmission grid models
+% from incomplete open data. However, it is less suitable as a direct data
+% source for the Spanish grid, since the study uses old OSM data and several
+% electrical parameters are inferred rather than obtained from official TSO
+% data. The more recent Xiong et al. approach is better suited as the main
+% source/pipeline for obtaining the current European and Spanish HV grid.
+@misc{18d96a57b267a90c8aca1ba47156220b,
+  title = {Automatic Generation of Real Power Transmission Grid Models From Crowdsourced Data},
+  author = {José Rivera and Pezhman Nasirifard and J. Leimhofer and H. Jacobsen},
+  year = {2019},
+  journal = {IEEE Transactions on Smart Grid},
+  url = {https://www.semanticscholar.org/paper/8b7abefe932407c04b5e93bc502c18c74b0b9b1f},
+  doi = {10.1109/TSG.2018.2882840}
+}
+
+
+
+%% PROGRAMAS DE SIMULACIÓN Y ANÁLISIS DE REDES ELÉCTRICAS
+
+% Presents pandapower, an open-source Python framework for automated
+% modeling, analysis and optimization of balanced electrical power systems.
+% It uses an element-based network representation built on pandas and
+% supports detailed models of buses, AC/DC lines, loads, generators,
+% transformers and switches. The framework provides AC/DC power flow,
+% optimal power flow, state estimation, IEC 60909 short-circuit calculations,
+% topological analysis through NetworkX and quasi-static time-series
+% simulations. It also includes standard line and transformer types that can
+% be used to derive electrical parameters required for network simulations.
+% Highly relevant for EAGLE as a potential simulation and analysis framework
+% for the transmission network constructed from sources such as OSM/PyPSA,
+% REData and CNMC. Particularly useful for automated power-flow studies,
+% network constraint analysis and validation of the reconstructed topology.
+% It should not be considered a data source for the Spanish electricity grid,
+% but rather a tool for transforming the collected network data into a
+% simulation-ready electrical model and performing subsequent analyses.
+@article{thurner2018pandapower,
+  title   = {pandapower---An Open-Source Python Tool for Convenient Modeling, Analysis, and Optimization of Electric Power Systems},
+  author  = {Thurner, Leon and Scheidler, Alexander and Sch{\"a}fer, Florian and Menke, Jan-Hendrik and Dollichon, Julian and Meier, Friederike and Meinecke, Steffen and Braun, Martin},
+  journal = {IEEE Transactions on Power Systems},
+  year    = {2018},
+  volume  = {33},
+  number  = {6},
+  pages   = {6510--6521},
+  doi     = {10.1109/TPWRS.2018.2829021},
+  url     = {https://doi.org/10.1109/TPWRS.2018.2829021}
+}
+
+
+% Presents PyPSA (Python for Power System Analysis), an open-source Python
+% framework designed to bridge traditional power system analysis and
+% multi-period energy system modelling. PyPSA supports AC and linear power
+% flow, optimal power flow, security-constrained optimisation, unit commitment,
+% variable renewable generation, storage, transmission expansion and coupling
+% with other energy sectors. Its multi-period optimisation capabilities allow
+% the simultaneous analysis of system operation and investment over long time
+% series. Network components and time-dependent data are handled through
+% pandas DataFrames, facilitating integration with external datasets and
+% automated Python workflows. Highly relevant for EAGLE as a potential
+% simulation and optimisation framework for combining the reconstructed
+% transmission network with demand, generation and renewable time series.
+% Particularly suitable for evaluating future scenarios involving renewable
+% integration, storage, network congestion and transmission expansion.
+% Furthermore, its direct compatibility with the PyPSA/PyPSA-Eur ecosystem
+% makes it especially relevant when using the open transmission-grid
+% methodology and datasets investigated for EAGLE. PyPSA should not be
+% considered a source of Spanish electricity-system data, but rather a
+% framework for transforming collected network and time-series data into
+% simulation-ready models and evaluating operational and investment scenarios.
+@article{brown2018pypsa,
+  author  = {Brown, Tom and H{\"o}rsch, Jonas and Schlachtberger, David},
+  title   = {{PyPSA: Python for Power System Analysis}},
+  journal = {Journal of Open Research Software},
+  volume  = {6},
+  number  = {4},
+  year    = {2018},
+  eprint  = {1707.09913},
+  doi     = {10.5334/jors.188},
+  url     = {https://doi.org/10.5334/jors.188}
+}
