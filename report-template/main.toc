@@ -18,3 +18,22 @@
 \contentsline {chapter}{\numberline {3}Power Grid Reconstruction Methodologies}{25}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Xiong et al. -- OSM/PyPSA}{25}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Rivera et al. -- OSM/Transnet}{27}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Data Center Planning Papers}{30}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Scientific Literature}{30}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Literature Review: Data Center Location Optimization}{30}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Location Selection Methodology for Data Center with Renewable Energy Integration}{30}{subsection.4.2.1}%
+\contentsline {subsubsection}{Summary and Introduction}{30}{subsubsection*.6}%
+\contentsline {subsubsection}{Methodology}{31}{subsubsection*.7}%
+\contentsline {subsubsection}{Results}{31}{subsubsection*.8}%
+\contentsline {subsubsection}{Conclusions}{32}{subsubsection*.9}%
+\contentsline {subsection}{\numberline {4.2.2}Geospatial Suitability Analysis for Data Center Placement: A Case Study in Texas, USA}{32}{subsection.4.2.2}%
+\contentsline {subsubsection}{Summary and Introduction}{32}{subsubsection*.10}%
+\contentsline {subsubsection}{Methodology}{33}{subsubsection*.11}%
+\contentsline {subsubsection}{Results}{34}{subsubsection*.12}%
+\contentsline {subsubsection}{Conclusions}{34}{subsubsection*.13}%
+\contentsline {subsection}{\numberline {4.2.3}Optimal County-Level Siting of Data Centers in the United States}{35}{subsection.4.2.3}%
+\contentsline {subsubsection}{Summary and Introduction}{35}{subsubsection*.14}%
+\contentsline {subsubsection}{Methodology}{35}{subsubsection*.15}%
+\contentsline {subsubsection}{Results}{36}{subsubsection*.16}%
+\contentsline {subsubsection}{Conclusions}{37}{subsubsection*.17}%
+\contentsline {section}{\numberline {4.3}Criterios para el Data Center Planning}{37}{section.4.3}%

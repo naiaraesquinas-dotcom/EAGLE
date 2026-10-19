@@ -183,6 +183,8 @@ INPUT C:\Program Files\MiKTeX\tex\latex\ifoddpage\ifoddpage.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\varwidth\varwidth.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\varwidth\varwidth.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\varwidth\varwidth.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\enumitem\enumitem.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\enumitem\enumitem.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\listings\listings.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\listings\listings.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\listings\lstpatch.sty
@@ -510,6 +512,69 @@ INPUT .\figures\logos\logo_etseib.jpg
 INPUT .\figures\logos\logo_etseib.jpg
 INPUT .\figures\logos\logo_etseib.jpg
 INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\chapters\chapter4.tex
+INPUT .\chapters\chapter4.tex
+INPUT .\chapters\chapter4.tex
+INPUT .\chapters\chapter4.tex
+INPUT chapters\chapter4.tex
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplb8t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplri8t.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr8c.tfm
+INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\palatino\pplb8t.vf
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplb8r.tfm
+INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\palatino\pplri8t.vf
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplri8r.tfm
+INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\palatino\pplr8c.vf
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\fplmr.tfm
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT C:\Program Files\MiKTeX\fonts\vf\public\mathpazo\zplmr7m.vf
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\fplmri.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplri8r.tfm
+INPUT C:\Program Files\MiKTeX\fonts\vf\public\mathpazo\zplmr7y.vf
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\vf\public\mathpazo\zplmr7t.vf
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\palatino\pplr7t.vf
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplr8t.tfm
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\palatino\pplr7t.vf
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT C:\Program Files\MiKTeX\fonts\vf\public\mathpazo\zplmr7m.vf
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\fplmri.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplri8r.tfm
+INPUT C:\Program Files\MiKTeX\fonts\vf\public\mathpazo\zplmr7v.vf
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\fplmr.tfm
+INPUT C:\Program Files\MiKTeX\fonts\vf\public\mathpazo\zplmr7t.vf
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\mathpazo\fplmr.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr10.tfm
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT C:\Program Files\MiKTeX\fonts\tfm\adobe\palatino\pplri8t.tfm
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT .\figures\logos\logo_etseib.jpg
+INPUT C:\Program Files\MiKTeX\fonts\vf\adobe\palatino\pplri8t.vf
 INPUT .\figures\logos\logo_etseib.jpg
 INPUT .\figures\logos\logo_etseib.jpg
 INPUT .\figures\logos\logo_etseib.jpg
@@ -518,7 +583,19 @@ INPUT .\main.out
 INPUT .\main.out
 INPUT C:\Users\naiar\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1095.pk
 INPUT C:\Users\naiar\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1095.pk
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\mathpazo\fplmr.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\mathpazo\fplmr.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\mathpazo\fplmri.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\mathpazo\fplmri.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\urw\palatino\uplb8a.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\urw\palatino\uplb8a.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\urw\palatino\uplr8a.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\urw\palatino\uplr8a.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\urw\palatino\uplri8a.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\urw\palatino\uplri8a.pfb

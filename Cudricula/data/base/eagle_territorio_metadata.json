@@ -1,0 +1,61 @@
+{
+  "nombre": "EAGLE — malla territorial",
+  "tamano_celda_km": 10,
+  "crs_malla": "EPSG:3035",
+  "crs_coordenadas": "EPSG:4326",
+  "num_celdas": 6356,
+  "columnas": [
+    "celda_id",
+    "pais",
+    "territorio",
+    "latitud",
+    "longitud",
+    "superficie_tierra_km2",
+    "porcentaje_tierra",
+    "geometry"
+  ],
+  "pais_territorio": [
+    {
+      "pais": "Andorra",
+      "territorio": "Andorra",
+      "celdas": 7
+    },
+    {
+      "pais": "España",
+      "territorio": "Baleares",
+      "celdas": 95
+    },
+    {
+      "pais": "España",
+      "territorio": "Canarias",
+      "celdas": 153
+    },
+    {
+      "pais": "España",
+      "territorio": "Ceuta",
+      "celdas": 2
+    },
+    {
+      "pais": "España",
+      "territorio": "España peninsular",
+      "celdas": 5147
+    },
+    {
+      "pais": "España",
+      "territorio": "Melilla",
+      "celdas": 6
+    },
+    {
+      "pais": "Gibraltar",
+      "territorio": "Gibraltar",
+      "celdas": 1
+    },
+    {
+      "pais": "Portugal",
+      "territorio": "Portugal continental",
+      "celdas": 945
+    }
+  ],
+  "fuente_limites": "geoBoundaries gbOpen, ESP ADM1; PRT/AND/GIB ADM0",
+  "nota": "Los polígonos son cuadrados íntegros. Las celdas costeras incluyen mar."
+}

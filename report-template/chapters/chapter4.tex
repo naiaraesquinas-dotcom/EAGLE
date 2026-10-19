@@ -1,0 +1,581 @@
+% ============================================================
+% CHAPTER: DATA CENTER PLANNING PAPERS
+% ============================================================
+
+\chapter{Data Center Planning Papers}
+\label{chap:datacenter_papers}
+
+\section{Scientific Literature}
+
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{5pt}
+\small
+
+\begin{longtable}{
+    |p{7.0cm}|p{5.8cm}|p{2.2cm}|
+}
+
+\hline
+\rowcolor{header}
+\color{white}\textbf{Paper / Reference} &
+\color{white}\textbf{Main Contribution} &
+\color{white}\textbf{Summary Section} \\ \hline
+\endfirsthead
+
+\hline
+\rowcolor{header}
+\color{white}\textbf{Paper / Reference} &
+\color{white}\textbf{Main Contribution} &
+\color{white}\textbf{Summary Section} \\ \hline
+\endhead
+
+% ============================================================
+% PAPER 1
+% ============================================================
+\rowcolor{green!8}
+\textbf{Location Selection Methodology for Data Center
+with Renewable Energy Integration}
+
+Ayyildiz et al. (2025)
+
+\textit{Renewable Energy}
+
+\href{https://doi.org/10.1016/j.renene.2025.123270}
+{DOI: 10.1016/j.renene.2025.123270}
+&
+\textbf{Multi-Criteria Site Selection}
+\begin{itemize}
+    \setlength{\itemsep}{0pt}
+    \setlength{\topsep}{0pt}
+    \item Site selection methodology
+    \item Renewable energy integration
+    \item Location evaluation criteria
+\end{itemize}
+&
+{\centering\hyperref[sec:dc_paper_1]{\ref*{sec:dc_paper_1}}}
+\\ \hline
+
+% ============================================================
+% PAPER 2
+% ============================================================
+
+\rowcolor{green!8}
+\textbf{Geospatial Suitability Analysis for Data
+Center Placement: A Case Study in Texas, USA}
+
+Arzumanyan et al. (2025)
+
+\textit{Sustainable Cities and Society}
+
+\href{https://doi.org/10.1016/j.scs.2025.106687}
+{DOI: 10.1016/j.scs.2025.106687}
+&
+\textbf{Geospatial Suitability}
+\begin{itemize}
+    \setlength{\itemsep}{0pt}
+    \setlength{\topsep}{0pt}
+    \item Geographic site assessment
+    \item Infrastructure availability
+    \item Spatial suitability criteria
+\end{itemize}
+&
+{\centering\hyperref[sec:dc_paper_2]{\ref*{sec:dc_paper_2}}}
+\\ \hline
+
+% ============================================================
+% PAPER 3
+% ============================================================
+
+\textbf{Optimal County-Level Siting of Data Centers
+in the United States}
+
+Vabson et al. (2026)
+
+\textit{arXiv Preprint}
+
+\href{https://arxiv.org/abs/2601.16315}
+{arXiv: 2601.16315}
+&
+\textbf{Geographical Site Selection}
+\begin{itemize}
+    \setlength{\itemsep}{0pt}
+    \setlength{\topsep}{0pt}
+    \item Electricity and grid connection costs
+    \item Renewable energy potential
+    \item Water and cooling requirements
+    \item Fiber-optic infrastructure
+    \item Geographic cost optimization
+\end{itemize}
+&
+{\centering\hyperref[sec:dc_paper_3]{\ref*{sec:dc_paper_3}}}
+\\ \hline
+
+
+\end{longtable}
+
+\normalsize
+
+\vspace{0.3cm}
+
+
+% ============================================================
+% LITERATURE REVIEW
+% DATA CENTER LOCATION AND RENEWABLE ENERGY INTEGRATION
+% ============================================================
+
+\section{Literature Review: Data Center Location Optimization}
+
+
+% ============================================================
+% PAPER 1
+% ============================================================
+
+\subsection{Location Selection Methodology for Data Center with Renewable Energy Integration}
+\label{sec:dc_paper_1}
+
+\noindent
+\textbf{Authors:} Ertugrul Ayyildiz, Betul Yildirim and Nezir Aydin (2025).
+
+\noindent
+\textbf{Publication:} Renewable Energy.
+
+\subsubsection{Summary and Introduction}
+
+This paper addresses the increasing energy demand and environmental impact of data centers by proposing a Multi-Criteria Decision-Making (MCDM) framework for selecting optimal locations that integrate renewable energy sources.
+
+The research aims to address the uncertainty and imprecision inherent in expert evaluations through the use of Picture Fuzzy Sets (PiFS), which incorporate positive, neutral, negative and refusal membership degrees.
+
+\subsubsection{Methodology}
+
+\begin{itemize}
+
+    \item \textbf{Hierarchical Criteria Framework:}
+
+    Five main criteria and 34 subcriteria were defined:
+
+    \begin{itemize}
+        \item Environmental: 26.71\%.
+        \item Renewable Energy: 25.00\%.
+        \item Accessibility and Infrastructure: 18.00\%.
+        \item Economic: 17.00\%.
+        \item Social and Governance: 13.00\%.
+    \end{itemize}
+
+    \item \textbf{Criteria Weighting (PiF-SWARA):}
+
+    The Picture Fuzzy Step-wise Weight Assessment Ratio Analysis (PiF-SWARA) method was applied using linguistic evaluations collected from seven industry experts.
+
+    \item \textbf{Alternative Evaluation (PiF-VIKOR):}
+
+    The Picture Fuzzy VIKOR method was used to evaluate and rank six candidate cities in Turkey:
+
+    \begin{itemize}
+        \item Konya.
+        \item İzmir.
+        \item Trabzon.
+        \item Antalya.
+        \item Şanlıurfa.
+        \item Çanakkale.
+    \end{itemize}
+
+    The alternatives were assessed according to their distance from ideal solutions.
+
+    \item \textbf{Sensitivity and Comparative Analysis:}
+
+    The decision strategy parameter $\tau$ was varied within the interval:
+
+    \[
+        \tau \in [0.1,\,0.9]
+    \]
+
+    The resulting rankings were compared with traditional MCDM methods, including TOPSIS, SAW, WASPAS and WISP.
+
+\end{itemize}
+
+\subsubsection{Results}
+
+\begin{itemize}
+
+    \item \textbf{Most Critical Subcriteria:}
+
+    The most influential individual factors were:
+
+    \begin{itemize}
+        \item Seismic intensity (C13): $w = 0.0588$.
+        \item Water resource availability (C11): $w = 0.0580$.
+        \item Carbon emissions (C15): $w = 0.0537$.
+        \item Average annual sunshine duration (C51): $w = 0.0536$.
+    \end{itemize}
+
+    \item \textbf{Final Ranking:}
+
+    İzmir achieved the highest overall ranking, with:
+
+    \[
+        Q_{\mathrm{Izmir}} = 0.017
+    \]
+
+    followed by Konya:
+
+    \[
+        Q_{\mathrm{Konya}} = 0.396
+    \]
+
+    The remaining alternatives were ranked as follows:
+
+    \[
+    \text{Antalya}
+    >
+    \text{Sanliurfa}
+    >
+    \text{Trabzon}
+    >
+    \text{Canakkale}
+    \]
+
+    \item \textbf{Advantages of İzmir:}
+
+    İzmir stood out due to its combination of telecommunications infrastructure, relatively low seismic vulnerability and significant wind and solar energy potential.
+
+\end{itemize}
+
+\subsubsection{Conclusions}
+
+The study demonstrates that incorporating renewable energy and environmental safety criteria significantly changes traditional data center location priorities.
+
+The hybrid PiF-SWARA--PiF-VIKOR framework showed mathematical robustness against variations in expert preferences, supporting its applicability to complex infrastructure location decisions.
+
+
+% ============================================================
+% PAPER 2
+% ============================================================
+
+\subsection{Geospatial Suitability Analysis for Data Center Placement: A Case Study in Texas, USA}
+\label{sec:dc_paper_2}
+
+\noindent
+\textbf{Authors:} Mariam Arzumanyan, Edna Rodriguez Calzado, Ning Lin, Vaibhav Bahadur, Jani Das, Tingwei Lucy Ko and Lars Koesterke (2025).
+
+\noindent
+\textbf{Publication:} Sustainable Cities and Society.
+
+\subsubsection{Summary and Introduction}
+
+This study develops a regional geospatial suitability analysis framework to evaluate potential data center locations across the state of Texas, USA.
+
+The proposed methodology combines Machine Learning (ML) algorithms with Multi-Criteria Decision-Making (MCDM) techniques within a Geographic Information System (GIS).
+
+The objective is to balance energy demand, climate-related risks and infrastructure availability when identifying suitable locations for new data centers.
+
+\subsubsection{Methodology}
+
+\begin{itemize}
+
+    \item \textbf{Spatial Variables:}
+
+    Five main dimensions were considered:
+
+    \begin{enumerate}
+        \item \textbf{Energy Access:}
+        Current and projected electrical capacity and distance to high-voltage transmission lines.
+
+        \item \textbf{Natural Hazards:}
+        FEMA datasets covering flooding, cold waves, hurricanes, tornadoes and wildfires.
+
+        \item \textbf{Skilled Workforce:}
+        Employment information based on NAICS code 518210 and IMPLAN datasets.
+
+        \item \textbf{Fiber-Optic Connectivity:}
+        Telecommunications infrastructure information obtained from GeoTel.
+
+        \item \textbf{Land Use and Availability:}
+        Land-cover information from the USGS National Land Cover Database (NLCD).
+    \end{enumerate}
+
+    \item \textbf{Weight Determination Using Random Forest:}
+
+    A Random Forest (RF) classification model was trained using:
+
+    \begin{itemize}
+        \item 800 existing data center locations ($y=1$).
+        \item 1,000 randomly generated control locations ($y=0$).
+    \end{itemize}
+
+    Feature importance scores derived from the reduction in Gini impurity were used to establish the relative weights of the suitability criteria.
+
+    \item \textbf{Weighted Linear Combination (WLC):}
+
+    The spatial variables were combined using a weighted linear suitability model:
+
+    \[
+        S_i = \sum_{j=1}^{n} w_j x_{ij}
+    \]
+
+    where:
+
+    \begin{itemize}
+        \item $S_i$ is the suitability score of location $i$.
+        \item $w_j$ is the weight assigned to criterion $j$.
+        \item $x_{ij}$ is the normalized value of criterion $j$ at location $i$.
+        \item $n$ is the number of criteria.
+    \end{itemize}
+
+    \item \textbf{Scenario Analysis:}
+
+    Five evaluation scenarios were implemented:
+
+    \begin{enumerate}
+        \item \textbf{Baseline Scenario:}
+        Data-driven weighting based on Random Forest feature importance.
+
+        \item \textbf{Energy Optimization Scenario:}
+        50\% of the total weight assigned to energy-related variables, targeting hyperscale and cloud data centers.
+
+        \item \textbf{Climate Risk Minimization Scenario:}
+        50\% of the total weight assigned to natural hazards, targeting Tier III and Tier IV data centers.
+
+        \item \textbf{Neutral Scenario:}
+        Equal weights assigned to all criteria.
+
+        \item \textbf{Random Sensitivity Scenario:}
+        Dynamic variation of criteria weights to evaluate ranking stability.
+    \end{enumerate}
+
+\end{itemize}
+
+\subsubsection{Results}
+
+\begin{itemize}
+
+    \item \textbf{Key Influential Factors:}
+
+    In the Random Forest baseline model, the most relevant predictors were:
+
+    \begin{itemize}
+        \item Skilled workforce availability: 13\%.
+        \item Current electrical capacity: 11\%.
+        \item Distance to transmission lines: 11\%.
+        \item Land cover: 11\%.
+    \end{itemize}
+
+    \item \textbf{Geographical Distribution:}
+
+    The highest suitability scores were consistently concentrated around major metropolitan regions:
+
+    \begin{itemize}
+        \item Dallas--Fort Worth.
+        \item Houston.
+        \item Austin.
+        \item San Antonio.
+        \item Permian Basin energy hub, particularly Odessa.
+    \end{itemize}
+
+    \item \textbf{Scenario Trade-offs:}
+
+    The Energy Optimization Scenario favored regions with high electricity generation capacity, particularly West Texas.
+
+    Conversely, the Climate Risk Minimization Scenario penalized coastal areas along the Gulf of Mexico, including Houston and Corpus Christi, due to their exposure to hurricanes and flooding.
+
+\end{itemize}
+
+\subsubsection{Conclusions}
+
+The study concludes that inland metropolitan regions provide a favorable balance between digital infrastructure, workforce availability and environmental resilience.
+
+However, it emphasizes the need to decarbonize the regional electricity system operated by ERCOT and to incorporate long-term climate resilience into data center infrastructure planning.
+
+
+% ============================================================
+% PAPER 3
+% ============================================================
+
+\subsection{Optimal County-Level Siting of Data Centers in the United States}
+\label{sec:dc_paper_3}
+
+\noindent
+\textbf{Authors:} Maria Vabson, Muhy Eddin Za'ter, Amir Sajadi, Kyri Baker and Bri-Mathias Hodge (2026).
+
+\noindent
+\textbf{Publication:} Preprint / University of Colorado Boulder.
+
+\subsubsection{Summary and Introduction}
+
+This study formulates a quantitative Capacity Expansion Model (CEM) to determine optimal data center locations at the county level across the contiguous United States.
+
+The analysis covers 3,066 counties and simultaneously considers electricity consumption, water requirements, fiber-optic connectivity and the possibility of colocating clean electricity generation and energy storage systems.
+
+The main objective is to identify cost-effective locations while accounting for long-term infrastructure investment and environmental sustainability.
+
+\subsubsection{Methodology}
+
+\begin{itemize}
+
+    \item \textbf{Mathematical Formulation:}
+
+    The location problem is formulated as a multi-objective Mixed-Integer Linear Programming (MILP) optimization model.
+
+    The model is implemented using Pyomo and solved with the Gurobi optimization solver.
+
+    \item \textbf{Energy and Water Demand Modeling:}
+
+    Electricity and water consumption are estimated by combining IT equipment demand with:
+
+    \begin{itemize}
+        \item Power Usage Effectiveness (PUE).
+        \item Water Usage Effectiveness (WUE).
+        \item Climate zones defined by the International Energy Conservation Code (IECC).
+    \end{itemize}
+
+    The total data center electricity demand can be expressed as:
+
+    \[
+        P_{\mathrm{DC}} =
+        P_{\mathrm{IT}} \cdot \mathrm{PUE}
+    \]
+
+    where $P_{\mathrm{IT}}$ represents IT equipment power demand.
+
+    \item \textbf{Colocated Energy Technologies:}
+
+    The model considers several electricity generation and storage technologies:
+
+    \begin{itemize}
+        \item Solar photovoltaic generation.
+        \item Onshore wind generation.
+        \item Geothermal generation.
+        \item Small Modular Nuclear Reactors (SMRs).
+        \item Battery Energy Storage Systems (BESS).
+    \end{itemize}
+
+    \item \textbf{Infrastructure Costs:}
+
+    The optimization incorporates the costs associated with:
+
+    \begin{itemize}
+        \item Electrical substations.
+        \item Transmission line construction and connection.
+        \item Fiber-optic infrastructure.
+        \item Energy generation and storage assets.
+    \end{itemize}
+
+    \item \textbf{Objective Function:}
+
+    The optimization minimizes total system costs, including annualized capital investment, fixed operating and maintenance costs, variable electricity and water costs, renewable energy curtailment costs and network charges.
+
+    A general representation of the objective function is:
+
+    \[
+    \begin{aligned}
+        \min \; C_{\mathrm{total}} ={}&
+        C_{\mathrm{CAPEX}} +
+        C_{\mathrm{O\&M}} \\
+        &+ C_{\mathrm{energy}} +
+        C_{\mathrm{water}} \\
+        &+ C_{\mathrm{curtailment}} +
+        C_{\mathrm{grid}}
+    \end{aligned}
+    \]
+
+    where each term represents the corresponding cost component.
+
+\end{itemize}
+
+\subsubsection{Results}
+
+\begin{itemize}
+
+    \item \textbf{Economic Drivers:}
+
+    Initial capital investment and fixed operating costs showed the strongest positive correlation with total project costs.
+
+    \item \textbf{Geographical Patterns:}
+
+    Counties located in the southern and eastern regions of the United States generally exhibited lower total deployment costs, partly due to favorable local solar capacity factors.
+
+    \item \textbf{Impact of Colocated Renewable Energy:}
+
+    Allowing higher shares of directly integrated variable renewable generation, particularly wind and solar power combined with battery storage, increased clean electricity utilization.
+
+    This integration also contributed to reducing long-term operating costs.
+
+    \item \textbf{High-Cost Technologies:}
+
+    Geothermal generation showed a strong positive correlation with total project costs due to its comparatively high initial investment requirements relative to solar and wind technologies.
+
+\end{itemize}
+
+\subsubsection{Conclusions}
+
+The study quantitatively demonstrates that, although short-term data center location decisions are often driven by low electricity tariffs and land prices, long-term investments in colocated renewable generation and energy storage can provide a more cost-effective and environmentally sustainable strategy.
+
+The results highlight the importance of jointly optimizing data center location, electricity infrastructure, renewable generation and storage capacity to accommodate the increasing computational demand associated with artificial intelligence and cloud computing.
+
+
+
+\section{Criterios para el Data Center Planning}
+
+\begin{enumerate}[label=\arabic*. ,leftmargin=*,itemsep=1em]
+    \item \textbf{Impactos medioambientales}
+    \begin{itemize}[leftmargin=*,nosep]
+        
+        \item Disponibilidad de recursos hídricos. (Riesgo de escasez de agua y presión sobre los recursos hídricos locales)
+        \item Disponibilidad y uso del suelo, y restricciones territoriales. % NUEVO
+        \item Necesidad de energia para la refrigeración (Clima local (temperatura y humedad) y posibilidades de \textit{free cooling}.)
+    \end{itemize}
+
+     \item \textbf{Riesgos medioambientales y climaticos}
+    \begin{itemize}[leftmargin=*,nosep]
+        \item Exposición a fenómenos naturales (inundaciones, incendios, olas de frío, etc.).
+        \item Intensidad sísmica.
+    \end{itemize}
+
+    \item \textbf{Disponibilidad deEnergías renovables}
+    \begin{itemize}[leftmargin=*,nosep]
+        \item Potencial del viento.
+        \item Radiación solar anual y potencial de generación fotovoltaica. % NUEVO
+        \item Potencial de otras fuentes renovables (geotermia, hidroeléctrica y biomasa; energía undimotriz cuando proceda). % NUEVO
+        \item Proximidad y acceso a instalaciones de generación renovable. % NUEVO
+        \item Posibilidad de integrar generación renovable y almacenamiento energético \textit{in situ}. % NUEVO
+        \item Variabilidad horaria de la producción renovable y complementariedad con el perfil de demanda. % NUEVO
+        \item Impacto ambiental de las instalaciones de generación renovable. % NUEVO
+    \end{itemize}
+
+    \item \textbf{Accesibilidad e infraestructura}
+    \begin{itemize}[leftmargin=*,nosep]
+        \item Proximidad a redes de telecomunicaciones.
+        \item Proximidad a redes de fibra óptica de alta capacidad y necesidades de ampliación. % NUEVO
+        \item Proximidad a líneas de alta tensión y subestaciones.
+        \item Congestión de la red. (Capacidad y demanda eléctrica.)
+        \item Perfiles de tensión y estabilidad nodal (asegurar que la incorporación del centro de datos no comprometa la seguridad ni la estabilidad de la red).
+        \item Nodos con margen de reserva (energía y capacidad de infraestructura).
+        \item Capacidad de generación eléctrica existente y planificada en la zona. % NUEVO
+        \item Capacidad de conexión y posibles necesidades de refuerzo o ampliación de la red eléctrica y las subestaciones. % NUEVO
+        \item Fiabilidad, continuidad y redundancia del suministro eléctrico. % NUEVO
+        
+        \item Acceso a carreteras principales, ferrocarril, aeropuertos y servicios logísticos. % NUEVO
+        \item Disponibilidad de suelo adecuado y espacio para futuras ampliaciones. % NUEVO
+    \end{itemize}
+
+    \item \textbf{Criterios económicos}
+    \begin{itemize}[leftmargin=*,nosep]
+        \item Costes del terreno.
+        \item Inversión inicial.
+        \item Incentivos financieros.
+        \item Precio de la electricidad y costes energéticos durante la operación. % NUEVO
+        \item Costes de refrigeración y consumo de agua. % NUEVO
+        \item Costes de conexión y ampliación de las redes eléctrica y de telecomunicaciones. % NUEVO
+        \item Costes de inversión, operación y mantenimiento de la generación y del almacenamiento energético \textit{in situ}. % NUEVO
+        \item Coste total a lo largo de la vida útil del proyecto, considerando el horizonte de inversión y la financiación. % NUEVO
+    \end{itemize}
+
+    \item \textbf{Criterios sociales y políticos}
+    \begin{itemize}[leftmargin=*,nosep]
+        \item Conflictos con reservas y parques naturales.
+        \item Entorno regulatorio.
+        \item Aceptación comunitaria.
+        \item Disponibilidad de personal técnico cualificado. % NUEVO
+        \item Seguridad física del emplazamiento y protección frente a amenazas. % NUEVO
+        \item Compatibilidad con la planificación territorial y los usos del suelo. % NUEVO
+        \item Incentivos y políticas locales de promoción de inversiones y desarrollo de infraestructuras. % NUEVO
+    \end{itemize}
+\end{enumerate}
